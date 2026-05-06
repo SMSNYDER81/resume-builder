@@ -79,7 +79,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--syne);font-size:13
 
 /* ═══ LAYOUT ═══ */
 /* ═══ SUBNAV (template pills row) ═══ */
-.subnav{position:fixed;top:52px;left:0;right:0;z-index:199;height:36px;background:rgba(10,16,32,0.98);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px;gap:10px}
+.subnav{position:fixed;top:52px;left:0;right:0;z-index:199;height:36px;background:rgba(10,16,32,0.98);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px;gap:8px}
+.subnav-right{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}
 .tpills{display:flex;gap:4px;flex-wrap:nowrap}
 .tpill{font-family:var(--mono);font-size:9px;padding:5px 11px;border-radius:20px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:var(--t);white-space:nowrap}
 .tpill:hover{border-color:var(--blue);color:var(--blue)}
@@ -96,7 +97,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--syne);font-size:13
 /* Style controls bar */
 .style-bar{padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
 .style-row{display:flex;align-items:center;gap:8px}
-.style-label{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;width:52px;flex-shrink:0}
+.style-label{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;width:48px;flex-shrink:0}
 .color-swatches{display:flex;gap:4px;flex-wrap:wrap}
 .swatch{width:18px;height:18px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:var(--t);flex-shrink:0}
 .swatch:hover{transform:scale(1.2)}
@@ -405,17 +406,9 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
     <button class="mode-tab active" onclick="setMode('resume',this)" type="button">📄 Resume</button>
     <button class="mode-tab" onclick="setMode('coverletter',this)" type="button">✉ Cover Letter</button>
   </div>
-  <div class="topbar-sep"></div>
-  <select class="export-sel" id="exportMethod">
-    <option value="print">Print / PDF</option>
-    <option value="jspdf">jsPDF</option>
-    <option value="html2canvas">html2canvas</option>
-  </select>
-  <button class="btn btn-primary" onclick="downloadResume()" type="button">⬇ Download PDF</button>
-  <a href="blog/" class="btn btn-ghost" style="font-size:10px">📝 Blog</a>
 </div>
 
-<!-- TEMPLATE SUB-NAV -->
+<!-- TEMPLATE + EXPORT SUB-NAV -->
 <div class="subnav">
   <span class="tlabel">Template</span>
   <div class="tpills" id="templatePills">
@@ -427,6 +420,15 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
     <button class="tpill" onclick="setTemplate('sidebar',this)" type="button">Sidebar</button>
     <button class="tpill" onclick="setTemplate('compact',this)" type="button">Compact</button>
     <button class="tpill" onclick="setTemplate('ats',this)" type="button">ATS</button>
+  </div>
+  <div class="subnav-right">
+    <select class="export-sel" id="exportMethod">
+      <option value="print">Print / PDF</option>
+      <option value="jspdf">jsPDF</option>
+      <option value="html2canvas">html2canvas</option>
+    </select>
+    <button class="btn btn-primary" onclick="downloadResume()" type="button">⬇ Download PDF</button>
+    <a href="blog/" class="btn btn-ghost" style="font-size:10px">📝 Blog</a>
   </div>
 </div>
 
