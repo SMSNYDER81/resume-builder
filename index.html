@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResumeForge — Free Resume Builder | No Account, No Subscription</title>
+<meta name="description" content="Build a professional resume free in your browser. 8 templates, color themes, font choices, AI bullet assist, and instant PDF download. No account required. 100% private.">
+<meta name="keywords" content="free resume builder, resume maker, professional resume, ATS resume, PDF resume, no account resume builder">
+<meta property="og:title" content="ResumeForge — Free Resume Builder">
+<meta property="og:description" content="8 templates, AI assist, instant PDF. Free forever. No account needed.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://resumeforge.net/og-image.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://resumeforge.net/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBhMTAyMCIvPjxyZWN0IHg9IjYiIHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyNCIgcng9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzYzYjNmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48bGluZSB4MT0iOSIgeTE9IjExIiB4Mj0iMjMiIHkyPSIxMSIgc3Ryb2tlPSIjNjNiM2ZmIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI5IiB5MT0iMTUiIHgyPSIyMyIgeTI9IjE1IiBzdHJva2U9IiM2M2IzZmYiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjkiIHkxPSIxOSIgeDI9IjE4IiB5Mj0iMTkiIHN0cm9rZT0iIzYzYjNmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48Y2lyY2xlIGN4PSIyMyIgY3k9IjIyIiByPSI1IiBmaWxsPSIjM2I4MmY2Ii8+PHBhdGggZD0iTTIxIDIybDEuNSAxLjVMMjUgMjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a1020;--bg2:#0f1a2e;--bg3:#132035;--bg4:#18273f;
+  --panel:#0c1628;
+  --border:rgba(99,179,255,0.16);--border2:rgba(99,179,255,0.28);
+  --text:#eef4ff;--text2:#a0c0de;--text3:#6888a8;
+  --blue:#63b3ff;--blue2:#3b82f6;--blue-dim:rgba(99,179,255,0.10);
+  --green:#4ade80;--green-dim:rgba(74,222,128,0.08);
+  --amber:#f59e0b;--red:#f87171;--purple:#a78bfa;
+  --syne:'Syne',sans-serif;--mono:'IBM Plex Mono',monospace;
+  --lora:'Lora',serif;--playfair:'Playfair Display',serif;
+  --dm:'DM Sans',sans-serif;--fraunces:'Fraunces',serif;
+  --crimson:'Crimson Pro',serif;
+  --r:7px;--t:0.15s ease;
+  --accent:#3b82f6;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--syne);font-size:13px;line-height:1.5;min-height:100vh;overflow:hidden}
+
+/* ═══ TOPBAR ═══ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:54px;background:rgba(10,16,32,0.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;padding:0 16px;gap:10px;
+}
+.brand{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--blue);letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;text-decoration:none}
+.brand b{color:var(--text)}
+.brand-tag{font-size:9px;color:var(--text3);margin-left:4px}
+.topbar-sep{flex:1}
+.tlabel{font-family:var(--mono);font-size:9px;color:var(--text2);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+
+/* tab switcher (Resume / Cover Letter) */
+.mode-tabs{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:3px;gap:2px;flex-shrink:0}
+.mode-tab{font-family:var(--mono);font-size:10px;padding:4px 12px;border-radius:4px;cursor:pointer;border:none;background:transparent;color:var(--text2);transition:var(--t)}
+.mode-tab.active{background:var(--blue2);color:#fff;font-weight:500}
+
+.tpills{display:flex;gap:3px;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:9px;padding:4px 9px;border-radius:20px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:var(--t);white-space:nowrap}
+.tpill:hover{border-color:var(--blue);color:var(--blue)}
+.tpill.active{background:var(--blue-dim);border-color:var(--blue);color:var(--blue);font-weight:500}
+
+.export-sel{font-family:var(--mono);font-size:10px;background:var(--bg3);border:1px solid var(--border2);color:#b0cce8;padding:5px 8px;border-radius:6px;cursor:pointer;outline:none}
+.btn{font-family:var(--syne);font-size:11px;font-weight:700;padding:7px 14px;border-radius:6px;cursor:pointer;border:none;transition:var(--t);letter-spacing:0.04em;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.btn-primary{background:var(--blue2);color:#fff}
+.btn-primary:hover{background:#2563eb;transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--text2)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-ai{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-size:10px;padding:4px 10px}
+.btn-ai:hover{opacity:0.88}
+.btn-sm{padding:4px 8px;font-size:10px}
+.btn-del{background:#1a0a0a;border:1px solid #7f1d1d;color:#f87171;font-size:10px;padding:3px 7px}
+.btn-del:hover{background:#7f1d1d}
+.btn-move{background:transparent;border:1px solid var(--border);color:var(--text3);font-size:11px;padding:3px 6px;cursor:grab}
+.btn-move:hover{color:var(--text2)}
+
+/* ═══ LAYOUT ═══ */
+.app{display:flex;height:calc(100vh - 54px);margin-top:54px}
+
+/* ═══ EDITOR ═══ */
+.editor{width:390px;min-width:300px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--border2);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent}
+.editor::-webkit-scrollbar{width:3px}
+.editor::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* Style controls bar */
+.style-bar{padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.style-row{display:flex;align-items:center;gap:8px}
+.style-label{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;width:52px;flex-shrink:0}
+.color-swatches{display:flex;gap:4px;flex-wrap:wrap}
+.swatch{width:18px;height:18px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:var(--t);flex-shrink:0}
+.swatch:hover{transform:scale(1.2)}
+.swatch.active{border-color:#fff;transform:scale(1.15)}
+.swatch-custom{width:18px;height:18px;border-radius:50%;border:2px solid var(--border2);background:conic-gradient(red,yellow,lime,cyan,blue,magenta,red);cursor:pointer;flex-shrink:0;position:relative;overflow:hidden}
+.swatch-custom input[type=color]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.font-sel{font-family:var(--mono);font-size:10px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:4px 8px;border-radius:5px;cursor:pointer;outline:none;flex:1}
+.cols-toggle{display:flex;gap:3px}
+.col-btn{font-family:var(--mono);font-size:9px;padding:4px 8px;border-radius:4px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text3);transition:var(--t)}
+.col-btn.active{border-color:var(--blue);color:var(--blue);background:var(--blue-dim)}
+
+/* Sections */
+.esec{border-bottom:1px solid var(--border)}
+.esec-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;cursor:pointer;background:var(--bg2);transition:var(--t);user-select:none}
+.esec-hdr:hover{background:var(--bg3)}
+.esec-title{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:7px}
+.esec-ico{font-size:13px}
+.esec-hdr-right{display:flex;align-items:center;gap:6px}
+.esec-arrow{color:var(--text3);font-size:10px;transition:var(--t)}
+.esec-arrow.open{transform:rotate(90deg)}
+.esec-body{padding:12px 14px;display:none;animation:fadeIn 0.15s ease}
+.esec-body.open{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+/* Form */
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.frow.s1{grid-template-columns:1fr}
+.frow.s3{grid-template-columns:1fr 1fr 1fr}
+.fg{display:flex;flex-direction:column;gap:3px}
+label{font-family:var(--mono);font-size:9px;color:var(--text2);letter-spacing:0.07em;text-transform:uppercase}
+input,textarea,select{font-family:var(--mono);font-size:11px;color:#e8f2ff;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:7px 9px;outline:none;transition:var(--t);width:100%}
+input:focus,textarea:focus,select:focus{border-color:var(--blue);background:var(--bg4)}
+input::placeholder,textarea::placeholder{color:#5a7a9a}
+textarea{resize:vertical;min-height:58px;line-height:1.5}
+
+/* Photo */
+.photo-zone{border:2px dashed var(--border2);border-radius:8px;padding:14px;text-align:center;cursor:pointer;transition:var(--t);position:relative;margin-bottom:10px;overflow:hidden}
+.photo-zone:hover,.photo-zone.drag{border-color:var(--blue);background:var(--blue-dim)}
+.photo-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2}
+.photo-preview{width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--blue2);margin:0 auto 6px;display:block}
+.photo-placeholder{font-family:var(--mono);font-size:10px;color:var(--text3);line-height:1.8}
+.photo-remove{display:inline-block;margin-top:4px;font-family:var(--mono);font-size:9px;color:var(--red);cursor:pointer;background:none;border:none;padding:0;position:relative;z-index:3}
+
+/* Entry cards */
+.entry-card{background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:11px;margin-bottom:8px}
+.entry-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;gap:6px}
+.entry-title-text{font-size:11px;font-weight:600;color:#e8f2ff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.entry-actions{display:flex;gap:3px;flex-shrink:0}
+.add-entry{display:flex;align-items:center;justify-content:center;gap:5px;font-family:var(--mono);font-size:10px;color:var(--text2);background:transparent;border:1px dashed var(--border2);border-radius:6px;padding:8px;width:100%;cursor:pointer;transition:var(--t);margin-top:2px}
+.add-entry:hover{border-color:var(--blue);color:var(--blue)}
+
+/* Skills */
+.skill-inp-row{display:flex;gap:6px;margin-bottom:7px}
+.skill-inp-row input{flex:1}
+.skill-tags{display:flex;flex-wrap:wrap;gap:4px}
+.stag{font-family:var(--mono);font-size:9px;background:var(--blue-dim);border:1px solid var(--border2);color:var(--blue);padding:3px 8px;border-radius:20px;display:flex;align-items:center;gap:4px}
+.stag-x{background:none;border:none;color:var(--text3);cursor:pointer;font-size:11px;padding:0;line-height:1;transition:var(--t)}
+.stag-x:hover{color:var(--red)}
+
+/* AI panel */
+.ai-panel{background:var(--bg3);border:1px solid rgba(167,139,250,0.2);border-radius:8px;padding:12px;margin-bottom:12px}
+.ai-panel-title{font-family:var(--mono);font-size:9px;color:var(--purple);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.ptabs{display:flex;gap:3px;margin-bottom:8px}
+.ptab{font-family:var(--mono);font-size:9px;padding:4px 9px;border-radius:20px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:var(--t)}
+.ptab:hover,.ptab.active{border-color:var(--purple);color:var(--purple);background:rgba(167,139,250,0.08)}
+.ai-privacy-note{font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:6px;line-height:1.6}
+
+/* Blog nav link */
+.blog-link{font-family:var(--mono);font-size:9px;color:var(--text3);padding:14px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;text-decoration:none;transition:var(--t)}
+.blog-link:hover{color:var(--blue)}
+
+/* Privacy footer */
+.editor-footer{padding:12px 14px;font-family:var(--mono);font-size:9px;color:#7a9ab8;line-height:1.7;border-top:1px solid var(--border)}
+
+/* ═══ PREVIEW PANE ═══ */
+.preview-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden}
+
+/* Ad zone — top of preview */
+.ad-zone-top{height:90px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ad-placeholder{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;border:1px dashed var(--border);border-radius:4px;padding:8px 24px}
+
+.preview{flex:1;overflow:auto;background:#d8d8d8;padding:20px;display:flex;justify-content:center;gap:20px;scrollbar-width:thin}
+.preview::-webkit-scrollbar{width:6px}
+.preview::-webkit-scrollbar-thumb{background:#bbb;border-radius:3px}
+
+/* Ad zone — right sidebar of preview */
+.ad-zone-side{width:160px;flex-shrink:0;display:flex;flex-direction:column;gap:12px;padding:0}
+.ad-zone-side .ad-placeholder{writing-mode:horizontal-tb;width:160px;height:600px;display:flex;align-items:center;justify-content:center;padding:0}
+
+.resume-page{width:794px;min-height:1122px;background:#fff;box-shadow:0 4px 40px rgba(0,0,0,0.3);flex-shrink:0;position:relative;overflow:hidden;font-size:13px}
+
+/* ═══ TEMPLATE STYLES ═══ */
+
+/* Shared resume primitives */
+.r-entry-bullets{padding-left:15px;line-height:1.65}
+.r-entry-bullets li{margin-bottom:2px}
+
+/* 1. CLASSIC */
+.tpl-classic .r-header{background:var(--t-accent,#1e3a5f);color:#fff;padding:34px 38px;display:flex;gap:22px;align-items:center}
+.tpl-classic .r-photo{width:86px;height:86px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.3);flex-shrink:0}
+.tpl-classic .r-photo-ph{width:86px;height:86px;border-radius:50%;background:rgba(255,255,255,0.1);border:2px dashed rgba(255,255,255,0.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;color:rgba(255,255,255,0.3)}
+.tpl-classic .r-name{font-size:26px;font-weight:700;line-height:1.1;margin-bottom:3px}
+.tpl-classic .r-jobTitle{font-size:13px;opacity:0.8;margin-bottom:9px}
+.tpl-classic .r-contact{display:flex;flex-wrap:wrap;gap:5px 16px;font-size:10px;opacity:0.75}
+.tpl-classic .r-body{display:flex}
+.tpl-classic .r-sidebar{width:210px;background:#f0f4f8;padding:24px 20px;flex-shrink:0}
+.tpl-classic .r-main{flex:1;padding:24px 30px}
+.tpl-classic .r-stitle{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--t-accent,#1e3a5f);border-bottom:2px solid var(--t-accent,#1e3a5f);padding-bottom:4px;margin-bottom:11px;margin-top:18px}
+.tpl-classic .r-stitle:first-child{margin-top:0}
+.tpl-classic .r-entry{margin-bottom:13px}
+.tpl-classic .r-etitle{font-size:12px;font-weight:600;color:#1a1a1a}
+.tpl-classic .r-esub{font-size:11px;color:#555;margin-bottom:2px}
+.tpl-classic .r-edate{font-size:10px;color:#888;margin-bottom:4px}
+.tpl-classic .r-summary{font-size:11px;color:#333;line-height:1.65}
+.tpl-classic .r-skill-tag{display:inline-block;background:#dce8f5;color:var(--t-accent,#1e3a5f);font-size:10px;padding:2px 8px;border-radius:3px;margin:2px 2px 2px 0}
+.tpl-classic .r-entry-bullets{font-size:11px;color:#333}
+
+/* 2. MODERN */
+.tpl-modern{font-family:var(--t-font,'DM Sans'),sans-serif}
+.tpl-modern .r-header{padding:36px 42px 24px;border-bottom:3px solid var(--t-accent,#0f172a);display:flex;gap:18px;align-items:flex-start}
+.tpl-modern .r-photo{width:76px;height:76px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.tpl-modern .r-photo-ph{width:76px;height:76px;border-radius:8px;background:#f1f5f9;border:1px dashed #cbd5e1;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:#94a3b8}
+.tpl-modern .r-name{font-size:28px;font-weight:800;color:#0f172a;letter-spacing:-1px;line-height:1}
+.tpl-modern .r-jobTitle{font-size:12px;color:#64748b;margin:4px 0 9px}
+.tpl-modern .r-contact{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:10px;color:#64748b}
+.tpl-modern .r-body{padding:22px 42px;display:grid;gap:28px}
+.tpl-modern .r-body.cols-2{grid-template-columns:1fr 240px}
+.tpl-modern .r-body.cols-1{grid-template-columns:1fr}
+.tpl-modern .r-stitle{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--t-accent,#0f172a);margin-bottom:11px;margin-top:20px;display:flex;align-items:center;gap:8px}
+.tpl-modern .r-stitle:first-child{margin-top:0}
+.tpl-modern .r-stitle::after{content:'';flex:1;height:1px;background:#e2e8f0}
+.tpl-modern .r-entry{margin-bottom:14px}
+.tpl-modern .r-etitle{font-size:12px;font-weight:600;color:#0f172a}
+.tpl-modern .r-esub{font-size:11px;color:var(--t-accent,#3b82f6);margin-bottom:2px}
+.tpl-modern .r-edate{font-size:9px;color:#94a3b8;margin-bottom:4px;font-family:'IBM Plex Mono',monospace}
+.tpl-modern .r-summary{font-size:11px;color:#475569;line-height:1.7}
+.tpl-modern .r-skill-tag{display:inline-block;border:1px solid var(--t-accent,#3b82f6);color:var(--t-accent,#3b82f6);font-size:9px;padding:2px 7px;border-radius:20px;margin:2px 2px 2px 0}
+.tpl-modern .r-entry-bullets{font-size:11px;color:#334155}
+
+/* 3. MINIMAL */
+.tpl-minimal{font-family:'DM Sans',sans-serif}
+.tpl-minimal .r-header{padding:44px 50px 22px;border-bottom:1px solid #e0e0e0}
+.tpl-minimal .r-name{font-size:30px;font-weight:300;color:#111;letter-spacing:-0.5px;line-height:1;margin-bottom:5px}
+.tpl-minimal .r-jobTitle{font-size:11px;color:#888;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:9px}
+.tpl-minimal .r-contact{display:flex;flex-wrap:wrap;gap:5px 18px;font-size:10px;color:#999}
+.tpl-minimal .r-body{padding:24px 50px}
+.tpl-minimal .r-stitle{font-size:8px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#bbb;margin-bottom:10px;margin-top:24px}
+.tpl-minimal .r-stitle:first-child{margin-top:0}
+.tpl-minimal .r-entry{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;display:grid;grid-template-columns:130px 1fr;gap:14px}
+.tpl-minimal .r-entry.full{display:block;border-bottom:1px solid #f0f0f0}
+.tpl-minimal .r-entry:last-child{border-bottom:none}
+.tpl-minimal .r-entry-meta{font-size:10px;color:#aaa;line-height:1.7;padding-top:1px}
+.tpl-minimal .r-etitle{font-size:12px;font-weight:500;color:#111}
+.tpl-minimal .r-esub{font-size:10px;color:#777;margin-bottom:3px}
+.tpl-minimal .r-summary{font-size:11px;color:#555;line-height:1.75}
+.tpl-minimal .r-skill-list{font-size:11px;color:#555;line-height:2}
+.tpl-minimal .r-entry-bullets{font-size:11px;color:#444}
+
+/* 4. CREATIVE */
+.tpl-creative{font-family:'DM Sans',sans-serif}
+.tpl-creative .r-header{background:var(--t-accent-grad,linear-gradient(135deg,#1e1b4b,#4338ca));padding:34px 38px;display:flex;gap:20px;align-items:center;color:#fff}
+.tpl-creative .r-photo{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.35);flex-shrink:0}
+.tpl-creative .r-photo-ph{width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,0.1);border:2px dashed rgba(255,255,255,0.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;color:rgba(255,255,255,0.35)}
+.tpl-creative .r-name{font-size:28px;font-weight:700;line-height:1.1;margin-bottom:2px}
+.tpl-creative .r-jobTitle{font-size:11px;opacity:0.8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:9px}
+.tpl-creative .r-contact{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:10px;opacity:0.75}
+.tpl-creative .r-body{display:flex}
+.tpl-creative .r-sidebar{width:200px;background:#f5f3ff;padding:22px 18px;flex-shrink:0}
+.tpl-creative .r-main{flex:1;padding:22px 28px}
+.tpl-creative .r-stitle{font-size:12px;font-weight:700;color:var(--t-accent,#4338ca);margin-bottom:9px;margin-top:16px;font-family:'Playfair Display',serif}
+.tpl-creative .r-stitle:first-child{margin-top:0}
+.tpl-creative .r-stitle::before{content:'✦ ';font-size:8px}
+.tpl-creative .r-entry{margin-bottom:12px}
+.tpl-creative .r-etitle{font-size:12px;font-weight:600;color:#1e1b4b}
+.tpl-creative .r-esub{font-size:10px;color:var(--t-accent,#6d28d9);margin-bottom:2px}
+.tpl-creative .r-edate{font-size:9px;color:#9ca3af;margin-bottom:3px}
+.tpl-creative .r-summary{font-size:11px;color:#374151;line-height:1.7}
+.tpl-creative .r-skill-tag{display:block;font-size:10px;color:var(--t-accent,#4338ca);padding:3px 0;border-bottom:1px solid #e8e4ff;margin-bottom:1px}
+.tpl-creative .r-entry-bullets{font-size:11px;color:#374151}
+
+/* 5. ATS */
+.tpl-ats{font-family:Georgia,serif}
+.tpl-ats .r-header{padding:28px 38px 14px;border-bottom:2px solid #000;text-align:center}
+.tpl-ats .r-name{font-size:20px;font-weight:bold;color:#000;letter-spacing:1px;text-transform:uppercase}
+.tpl-ats .r-jobTitle{font-size:11px;color:#444;margin:2px 0;font-family:Arial,sans-serif}
+.tpl-ats .r-contact{display:flex;flex-wrap:wrap;justify-content:center;gap:3px 12px;font-size:10px;color:#333;margin-top:5px;font-family:Arial,sans-serif}
+.tpl-ats .r-body{padding:16px 38px}
+.tpl-ats .r-stitle{font-size:10px;font-weight:bold;color:#000;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid #000;padding-bottom:2px;margin-bottom:7px;margin-top:16px;font-family:Arial,sans-serif}
+.tpl-ats .r-stitle:first-child{margin-top:0}
+.tpl-ats .r-entry{margin-bottom:9px}
+.tpl-ats .r-ehdr{display:flex;justify-content:space-between;align-items:baseline}
+.tpl-ats .r-etitle{font-size:12px;font-weight:bold;color:#000;font-family:Arial,sans-serif}
+.tpl-ats .r-edate{font-size:10px;color:#333;font-family:Arial,sans-serif}
+.tpl-ats .r-esub{font-size:11px;color:#222;font-style:italic;margin-bottom:2px;font-family:Arial,sans-serif}
+.tpl-ats .r-summary{font-size:11px;color:#111;line-height:1.6;font-family:Arial,sans-serif}
+.tpl-ats .r-skill-list{font-size:11px;color:#111;font-family:Arial,sans-serif;line-height:1.7}
+.tpl-ats .r-entry-bullets{font-size:11px;color:#111;font-family:Arial,sans-serif}
+
+/* 6. EXECUTIVE */
+.tpl-executive{font-family:'Crimson Pro',serif}
+.tpl-executive .r-header{padding:36px 44px 20px;text-align:center;border-bottom:3px double var(--t-accent,#1a1a1a)}
+.tpl-executive .r-photo{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--t-accent,#1a1a1a);margin:0 auto 12px;display:block}
+.tpl-executive .r-photo-ph{width:80px;height:80px;border-radius:50%;background:#f5f5f5;border:2px dashed #ccc;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:24px;color:#aaa}
+.tpl-executive .r-name{font-size:32px;font-weight:600;color:#1a1a1a;letter-spacing:1px;margin-bottom:4px}
+.tpl-executive .r-jobTitle{font-size:13px;color:var(--t-accent,#555);font-style:italic;margin-bottom:10px}
+.tpl-executive .r-contact{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 18px;font-size:11px;color:#666;font-family:'DM Sans',sans-serif}
+.tpl-executive .r-body{padding:22px 44px}
+.tpl-executive .r-stitle{font-size:13px;font-weight:600;color:var(--t-accent,#1a1a1a);margin-bottom:10px;margin-top:20px;text-align:center;letter-spacing:2px;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-size:9px}
+.tpl-executive .r-stitle:first-child{margin-top:0}
+.tpl-executive .r-entry{margin-bottom:12px}
+.tpl-executive .r-etitle{font-size:14px;font-weight:600;color:#1a1a1a}
+.tpl-executive .r-esub{font-size:12px;color:var(--t-accent,#555);font-style:italic;margin-bottom:2px}
+.tpl-executive .r-edate{font-size:10px;color:#888;margin-bottom:4px;font-family:'DM Sans',sans-serif}
+.tpl-executive .r-summary{font-size:12px;color:#333;line-height:1.8}
+.tpl-executive .r-skill-tag{display:inline-block;font-size:11px;color:#333;margin-right:12px;margin-bottom:2px}
+.tpl-executive .r-skill-tag::before{content:'• ';color:var(--t-accent,#1a1a1a)}
+.tpl-executive .r-entry-bullets{font-size:12px;color:#333}
+
+/* 7. SIDEBAR-LEFT (two-col with accent sidebar) */
+.tpl-sidebar{font-family:'DM Sans',sans-serif}
+.tpl-sidebar .r-outer{display:flex;min-height:1122px}
+.tpl-sidebar .r-left{width:220px;background:var(--t-accent,#1e3a5f);color:#fff;padding:32px 20px;flex-shrink:0}
+.tpl-sidebar .r-right{flex:1;padding:32px 28px}
+.tpl-sidebar .r-photo{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.3);margin:0 auto 16px;display:block}
+.tpl-sidebar .r-photo-ph{width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,0.1);border:2px dashed rgba(255,255,255,0.25);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:26px;color:rgba(255,255,255,0.35)}
+.tpl-sidebar .r-name{font-size:18px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:3px;text-align:center}
+.tpl-sidebar .r-jobTitle{font-size:10px;opacity:0.75;text-align:center;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px}
+.tpl-sidebar .r-contact{font-size:9px;opacity:0.8;line-height:2.2}
+.tpl-sidebar .r-contact span{display:block}
+.tpl-sidebar .r-stitle-left{font-size:8px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;margin-top:18px;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px}
+.tpl-sidebar .r-stitle-left:first-child{margin-top:0;border-top:none;padding-top:0}
+.tpl-sidebar .r-skill-left{font-size:10px;color:#fff;opacity:0.85;margin-bottom:4px}
+.tpl-sidebar .r-skill-left::before{content:'▸ ';opacity:0.5}
+.tpl-sidebar .r-stitle-right{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--t-accent,#1e3a5f);margin-bottom:10px;margin-top:20px;padding-bottom:4px;border-bottom:2px solid var(--t-accent,#1e3a5f)}
+.tpl-sidebar .r-stitle-right:first-child{margin-top:0}
+.tpl-sidebar .r-entry{margin-bottom:13px}
+.tpl-sidebar .r-etitle{font-size:12px;font-weight:600;color:#0f172a}
+.tpl-sidebar .r-esub{font-size:10px;color:var(--t-accent,#1e3a5f);margin-bottom:2px}
+.tpl-sidebar .r-edate{font-size:9px;color:#94a3b8;margin-bottom:4px}
+.tpl-sidebar .r-summary{font-size:11px;color:#475569;line-height:1.7}
+.tpl-sidebar .r-entry-bullets{font-size:11px;color:#334155}
+.tpl-sidebar .r-cert{font-size:10px;opacity:0.8;margin-bottom:5px;line-height:1.4}
+
+/* 8. COMPACT */
+.tpl-compact{font-family:'DM Sans',sans-serif;font-size:11px}
+.tpl-compact .r-header{padding:20px 30px 14px;background:var(--t-accent,#0f172a);color:#fff;display:flex;justify-content:space-between;align-items:flex-end}
+.tpl-compact .r-header-left{}
+.tpl-compact .r-name{font-size:22px;font-weight:700;line-height:1;margin-bottom:2px}
+.tpl-compact .r-jobTitle{font-size:11px;opacity:0.75}
+.tpl-compact .r-contact{font-size:9px;opacity:0.7;text-align:right;line-height:1.9}
+.tpl-compact .r-contact span{display:block}
+.tpl-compact .r-body{padding:14px 30px;columns:2;column-gap:24px;column-fill:auto}
+.tpl-compact .r-col-break{break-before:column}
+.tpl-compact .r-stitle{font-size:8px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--t-accent,#0f172a);border-bottom:1.5px solid var(--t-accent,#0f172a);padding-bottom:2px;margin-bottom:8px;margin-top:14px;break-after:avoid}
+.tpl-compact .r-stitle:first-child{margin-top:0}
+.tpl-compact .r-entry{margin-bottom:10px;break-inside:avoid}
+.tpl-compact .r-etitle{font-size:11px;font-weight:600;color:#0f172a}
+.tpl-compact .r-esub{font-size:10px;color:#555;margin-bottom:1px}
+.tpl-compact .r-edate{font-size:9px;color:#888;margin-bottom:3px}
+.tpl-compact .r-summary{font-size:10px;color:#333;line-height:1.6;margin-bottom:10px}
+.tpl-compact .r-skill-inline{font-size:10px;color:#333;line-height:1.9}
+.tpl-compact .r-entry-bullets{font-size:10px;color:#333}
+
+/* ═══ MODAL ═══ */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:0.2s ease}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:22px;width:500px;max-width:94vw;transform:translateY(10px);transition:0.2s ease;max-height:90vh;overflow-y:auto}
+.modal-overlay.open .modal{transform:none}
+.modal-title{font-family:var(--mono);font-size:12px;color:var(--purple);letter-spacing:0.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.modal-close{margin-left:auto;background:none;border:none;color:var(--text3);cursor:pointer;font-size:18px;transition:var(--t)}
+.modal-close:hover{color:var(--text)}
+.modal-note{font-family:var(--mono);font-size:9px;color:var(--text3);line-height:1.6;margin-bottom:11px;padding:8px 10px;background:var(--bg3);border-radius:5px;border-left:2px solid var(--purple)}
+
+/* ═══ TOAST ═══ */
+.toast{position:fixed;bottom:22px;right:22px;z-index:999;background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-family:var(--mono);font-size:10px;color:var(--text);transform:translateY(14px);opacity:0;transition:0.3s ease;pointer-events:none}
+.toast.show{opacity:1;transform:none}
+.toast.success{border-color:rgba(74,222,128,0.35);color:var(--green)}
+.toast.error{border-color:rgba(248,113,113,0.35);color:var(--red)}
+
+/* ═══ LOADING ═══ */
+.loading-overlay{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.65);display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px}
+.loading-overlay.show{display:flex}
+.spinner{width:34px;height:34px;border:3px solid var(--border2);border-top-color:var(--blue);border-radius:50%;animation:spin 0.7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-txt{font-family:var(--mono);font-size:11px;color:var(--text2)}
+
+/* ═══ PRINT ═══ */
+@media print{
+  body{overflow:visible!important;background:#fff!important}
+  .topbar,.editor,.modal-overlay,.toast,.loading-overlay,.ad-zone-top,.ad-zone-side,.preview-wrap > .ad-zone-top{display:none!important}
+  .app{display:block!important;height:auto!important;margin:0!important;padding:0!important}
+  .preview-wrap{display:block!important}
+  .preview{padding:0!important;background:#fff!important;overflow:visible!important;display:block!important}
+  .resume-page{box-shadow:none!important;width:100%!important;min-height:0!important}
+}
+
+*{scrollbar-width:thin;scrollbar-color:var(--border2) transparent}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a class="brand" href="/">resume<b>forge</b><span class="brand-tag">// free builder</span></a>
+  <div class="mode-tabs">
+    <button class="mode-tab active" onclick="setMode('resume',this)" type="button">📄 Resume</button>
+    <button class="mode-tab" onclick="setMode('coverletter',this)" type="button">✉ Cover Letter</button>
+  </div>
+  <div class="topbar-sep"></div>
+  <div class="tlabel">Template</div>
+  <div class="tpills" id="templatePills">
+    <button class="tpill active" onclick="setTemplate('classic',this)" type="button">Classic</button>
+    <button class="tpill" onclick="setTemplate('modern',this)" type="button">Modern</button>
+    <button class="tpill" onclick="setTemplate('minimal',this)" type="button">Minimal</button>
+    <button class="tpill" onclick="setTemplate('creative',this)" type="button">Creative</button>
+    <button class="tpill" onclick="setTemplate('executive',this)" type="button">Executive</button>
+    <button class="tpill" onclick="setTemplate('sidebar',this)" type="button">Sidebar</button>
+    <button class="tpill" onclick="setTemplate('compact',this)" type="button">Compact</button>
+    <button class="tpill" onclick="setTemplate('ats',this)" type="button">ATS</button>
+  </div>
+  <select class="export-sel" id="exportMethod">
+    <option value="print">Print / Save PDF</option>
+    <option value="jspdf">jsPDF (fast)</option>
+    <option value="html2canvas">html2canvas (exact)</option>
+  </select>
+  <button class="btn btn-primary" onclick="downloadResume()" type="button">⬇ Download PDF</button>
+  <a href="blog/" class="btn btn-ghost" style="font-size:10px">📝 Blog</a>
+</div>
+
+<!-- APP -->
+<div class="app">
+
+  <!-- EDITOR -->
+  <div class="editor" id="editorPanel">
+
+    <!-- STYLE CONTROLS -->
+    <div class="style-bar">
+      <div class="style-row">
+        <span class="style-label">Color</span>
+        <div class="color-swatches" id="colorSwatches">
+          <div class="swatch active" style="background:#1e3a5f" data-color="#1e3a5f" onclick="setAccent('#1e3a5f',this)" title="Navy"></div>
+          <div class="swatch" style="background:#1a4731" data-color="#1a4731" onclick="setAccent('#1a4731',this)" title="Forest"></div>
+          <div class="swatch" style="background:#7c2d12" data-color="#7c2d12" onclick="setAccent('#7c2d12',this)" title="Burgundy"></div>
+          <div class="swatch" style="background:#1e1b4b" data-color="#1e1b4b" onclick="setAccent('#1e1b4b',this)" title="Indigo"></div>
+          <div class="swatch" style="background:#374151" data-color="#374151" onclick="setAccent('#374151',this)" title="Charcoal"></div>
+          <div class="swatch" style="background:#92400e" data-color="#92400e" onclick="setAccent('#92400e',this)" title="Bronze"></div>
+          <div class="swatch" style="background:#0e7490" data-color="#0e7490" onclick="setAccent('#0e7490',this)" title="Teal"></div>
+          <div class="swatch" style="background:#6b21a8" data-color="#6b21a8" onclick="setAccent('#6b21a8',this)" title="Purple"></div>
+          <div class="swatch" style="background:#be185d" data-color="#be185d" onclick="setAccent('#be185d',this)" title="Rose"></div>
+          <div class="swatch" style="background:#111827" data-color="#111827" onclick="setAccent('#111827',this)" title="Noir"></div>
+          <div class="swatch-custom" title="Custom color">
+            <input type="color" id="customColor" value="#1e3a5f" oninput="setAccent(this.value,null)">
+          </div>
+        </div>
+      </div>
+      <div class="style-row">
+        <span class="style-label">Font</span>
+        <select class="font-sel" id="fontSel" onchange="setFont(this.value)">
+          <option value="dm">DM Sans / Playfair (Default)</option>
+          <option value="syne">Syne / IBM Plex Mono</option>
+          <option value="crimson">Crimson Pro / DM Sans</option>
+          <option value="fraunces">Fraunces / DM Sans</option>
+        </select>
+      </div>
+      <div class="style-row">
+        <span class="style-label">Layout</span>
+        <div class="cols-toggle" id="colsToggle">
+          <button class="col-btn active" onclick="setCols(2,this)" type="button">2-Col</button>
+          <button class="col-btn" onclick="setCols(1,this)" type="button">1-Col</button>
+        </div>
+        <span style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-left:8px" id="colsNote">(Modern only)</span>
+      </div>
+    </div>
+
+    <!-- RESUME MODE -->
+    <div id="resumeMode">
+
+      <!-- PERSONAL INFO -->
+      <div class="esec" data-section="personal">
+        <div class="esec-hdr" onclick="toggleSection('personal')">
+          <div class="esec-title"><span class="esec-ico">👤</span> Personal Info</div>
+          <div class="esec-hdr-right">
+            <span class="esec-arrow open" id="arrow-personal">▶</span>
+          </div>
+        </div>
+        <div class="esec-body open" id="body-personal">
+          <div class="photo-zone" id="photoZone">
+            <input type="file" id="photoInput" accept="image/*" onchange="handlePhoto(event)">
+            <div id="photoPlaceholder">
+              <div class="photo-placeholder">
+                <div style="font-size:22px;margin-bottom:4px">🖼️</div>
+                Click or drag to upload photo<br>
+                <small style="font-size:8px;color:var(--text3)">(Optional · hidden on Minimal, ATS, Compact)</small>
+              </div>
+            </div>
+            <div id="photoPreviewWrap" style="display:none">
+              <img id="photoPreview" class="photo-preview" src="" alt="Photo preview">
+              <button class="photo-remove" onclick="removePhoto(event)" type="button">✕ Remove</button>
+            </div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>First Name</label><input id="firstName" placeholder="Jane" oninput="render()"></div>
+            <div class="fg"><label>Last Name</label><input id="lastName" placeholder="Doe" oninput="render()"></div>
+          </div>
+          <div class="frow s1"><div class="fg"><label>Job Title / Headline</label><input id="jobTitle" placeholder="Senior Product Designer" oninput="render()"></div></div>
+          <div class="frow">
+            <div class="fg"><label>Email</label><input id="email" placeholder="jane@example.com" oninput="render()"></div>
+            <div class="fg"><label>Phone</label><input id="phone" placeholder="(555) 123-4567" oninput="render()"></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>Location</label><input id="location" placeholder="New York, NY" oninput="render()"></div>
+            <div class="fg"><label>LinkedIn</label><input id="linkedin" placeholder="linkedin.com/in/jane" oninput="render()"></div>
+          </div>
+          <div class="frow s1"><div class="fg"><label>Website / Portfolio</label><input id="website" placeholder="janedoe.com" oninput="render()"></div></div>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="esec" data-section="summary">
+        <div class="esec-hdr" onclick="toggleSection('summary')">
+          <div class="esec-title"><span class="esec-ico">📝</span> Professional Summary</div>
+          <div class="esec-hdr-right"><span class="esec-arrow" id="arrow-summary">▶</span></div>
+        </div>
+        <div class="esec-body" id="body-summary">
+          <div class="fg">
+            <label>Summary</label>
+            <textarea id="summary" placeholder="Results-driven professional with 8+ years of experience…" oninput="render()"></textarea>
+          </div>
+          <button class="btn btn-ai" style="margin-top:6px" onclick="openAI('summary')" type="button">✦ AI Write Summary</button>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="esec" data-section="experience">
+        <div class="esec-hdr" onclick="toggleSection('experience')">
+          <div class="esec-title"><span class="esec-ico">💼</span> Work Experience</div>
+          <div class="esec-hdr-right"><span class="esec-arrow" id="arrow-experience">▶</span></div>
+        </div>
+        <div class="esec-body" id="body-experience">
+          <div id="exp-list"></div>
+          <button class="add-entry" onclick="addExp()" type="button">+ Add Position</button>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="esec" data-section="education">
+        <div class="esec-hdr" onclick="toggleSection('education')">
+          <div class="esec-title"><span class="esec-ico">🎓</span> Education</div>
+          <div class="esec-hdr-right"><span class="esec-arrow" id="arrow-education">▶</span></div>
+        </div>
+        <div class="esec-body" id="body-education">
+          <div id="edu-list"></div>
+          <button class="add-entry" onclick="addEdu()" type="button">+ Add Education</button>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="esec" data-section="skills">
+        <div class="esec-hdr" onclick="toggleSection('skills')">
+          <div class="esec-title"><span class="esec-ico">⚡</span> Skills</div>
+          <div class="esec-hdr-right"><span class="esec-arrow" id="arrow-skills">▶</span></div>
+        </div>
+        <div class="esec-body" id="body-skills">
+          <div class="skill-inp-row">
+            <input id="skillInput" placeholder="e.g. Figma, React, SEO… (Enter to add)" onkeydown="skillKeydown(event)">
+            <button class="btn btn-ghost btn-sm" onclick="addSkill()" type="button">Add</button>
+          </div>
+          <div class="skill-tags" id="skill-tags"></div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="esec" data-section="certs">
+        <div class="esec-hdr" onclick="toggleSection('certs')">
+          <div class="esec-title"><span class="esec-ico">🏆</span> Certifications</div>
+          <div class="esec-hdr-right"><span class="esec-arrow" id="arrow-certs">▶</span></div>
+        </div>
+        <div class="esec-body" id="body-certs">
+          <div id="cert-list"></div>
+          <button class="add-entry" onclick="addCert()" type="button">+ Add Certification</button>
+        </div>
+      </div>
+
+      <!-- AI SETTINGS -->
+      <div class="esec" data-section="ai">
+        <div class="esec-hdr" onclick="toggleSection('ai')">
+          <div class="esec-title"><span class="esec-ico">✦</span> AI Settings</div>
+          <div class="esec-hdr-right"><span class="esec-arrow" id="arrow-ai">▶</span></div>
+        </div>
+        <div class="esec-body" id="body-ai">
+          <div class="ai-panel">
+            <div class="ai-panel-title">✦ AI Bullet Point Assistant</div>
+            <div class="ptabs" id="providerTabs">
+              <button class="ptab active" onclick="setProvider('anthropic',this)" type="button">Anthropic</button>
+              <button class="ptab" onclick="setProvider('openai',this)" type="button">OpenAI</button>
+              <button class="ptab" onclick="setProvider('gemini',this)" type="button">Gemini</button>
+            </div>
+            <div class="fg" style="margin-bottom:6px">
+              <label>Your API Key</label>
+              <input type="password" id="aiKey" placeholder="Paste your key here…" oninput="saveKey()">
+            </div>
+            <div class="ai-privacy-note">🔒 Your key is stored in your browser only (localStorage). It is never sent to our servers. You pay your AI provider directly based on usage.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /resumeMode -->
+
+    <!-- COVER LETTER MODE -->
+    <div id="clMode" style="display:none">
+      <div style="padding:14px">
+        <div class="frow s1"><div class="fg"><label>Hiring Manager Name</label><input id="clManager" placeholder="Ms. Sarah Johnson" oninput="renderCL()"></div></div>
+        <div class="frow s1"><div class="fg"><label>Company Name</label><input id="clCompany" placeholder="Acme Corporation" oninput="renderCL()"></div></div>
+        <div class="frow s1"><div class="fg"><label>Job Title Applying For</label><input id="clJobTitle" placeholder="Senior Product Designer" oninput="renderCL()"></div></div>
+        <div class="frow s1"><div class="fg"><label>Opening Paragraph</label><textarea id="clOpen" rows="4" placeholder="I am writing to express my interest in the Senior Product Designer role…" oninput="renderCL()"></textarea></div></div>
+        <div class="frow s1"><div class="fg"><label>Body Paragraph</label><textarea id="clBody" rows="5" placeholder="In my current role at [Company], I have…" oninput="renderCL()"></textarea></div></div>
+        <div class="frow s1"><div class="fg"><label>Closing Paragraph</label><textarea id="clClose" rows="3" placeholder="I would welcome the opportunity to discuss…" oninput="renderCL()"></textarea></div></div>
+        <button class="btn btn-ai" style="margin-top:6px;width:100%;justify-content:center" onclick="openAI('coverletter')" type="button">✦ AI Write Cover Letter</button>
+      </div>
+    </div>
+
+    <!-- Footer links -->
+    <a class="blog-link" href="blog/">📰 Read our resume writing tips blog →</a>
+    <div class="editor-footer">
+      🔒 <b style="color:var(--text2)">100% Private.</b> Your data never leaves your browser.<br>
+      No account · No subscription · No server · Free forever.
+    </div>
+
+  </div><!-- /editor -->
+
+  <!-- PREVIEW PANE -->
+  <div class="preview-wrap">
+
+    <!-- AD ZONE TOP (728×90 leaderboard) -->
+    <div class="ad-zone-top">
+      <div class="ad-placeholder">728 × 90 — Leaderboard Ad</div>
+    </div>
+
+    <div style="display:flex;flex:1;overflow:hidden">
+      <!-- Resume preview -->
+      <div class="preview" id="preview">
+        <div class="resume-page tpl-classic" id="resumePage"></div>
+      </div>
+
+      <!-- AD ZONE RIGHT SIDEBAR (160×600 skyscraper) -->
+      <div class="ad-zone-side" style="background:var(--bg2);border-left:1px solid var(--border);padding:16px;overflow:hidden">
+        <div class="ad-placeholder" style="width:128px;height:280px;font-size:8px;writing-mode:horizontal-tb;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.8">300 × 250<br>Ad</div>
+        <div class="ad-placeholder" style="width:128px;height:280px;font-size:8px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.8;margin-top:12px">300 × 250<br>Ad</div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /app -->
+
+<!-- AI MODAL -->
+<div class="modal-overlay" id="aiModal">
+  <div class="modal">
+    <div class="modal-title">✦ AI Writing Assistant <button class="modal-close" onclick="closeAI()" type="button">✕</button></div>
+    <div class="modal-note">🔒 Your API key stays in your browser. Only the text you type below is sent to the AI — no resume data is transmitted automatically.</div>
+    <div class="fg" style="margin-bottom:9px">
+      <label>Describe the role / what you want</label>
+      <textarea id="aiPromptInput" rows="4" placeholder="e.g. Senior product designer at a fintech startup. Led mobile checkout redesign, improved conversion 32%, managed team of 4."></textarea>
+    </div>
+    <div class="fg" style="margin-bottom:9px">
+      <label>Output type</label>
+      <select id="aiOutputType" onchange="updateAIOutputType()">
+        <option value="bullets">4–5 professional bullet points</option>
+        <option value="summary">Professional summary paragraph</option>
+        <option value="coverletter">Full cover letter draft</option>
+        <option value="improve">Improve my existing text</option>
+      </select>
+    </div>
+    <div id="aiExistingWrap" class="fg" style="margin-bottom:9px;display:none">
+      <label>Paste your existing text to improve</label>
+      <textarea id="aiExistingText" rows="3" placeholder="Paste current text here…"></textarea>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:11px;align-items:center">
+      <button class="btn btn-ai" onclick="runAI()" id="aiRunBtn" type="button">✦ Generate</button>
+      <button class="btn btn-ghost" onclick="closeAI()" type="button">Cancel</button>
+      <span id="aiStatus" style="font-family:var(--mono);font-size:10px;color:var(--text2);margin-left:auto"></span>
+    </div>
+    <div id="aiResult" style="display:none">
+      <div class="fg">
+        <label>Generated text — copy and paste into your builder</label>
+        <textarea id="aiResultText" rows="7" style="margin-top:4px;background:var(--bg3);border-color:rgba(167,139,250,0.3)"></textarea>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <button class="btn btn-primary btn-sm" onclick="copyAIResult()" type="button">📋 Copy</button>
+        <button class="btn btn-ghost btn-sm" onclick="closeAI()" type="button">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-txt" id="loadingTxt">Generating PDF…</div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+// ══════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════
+let currentTemplate = 'classic';
+let currentMode = 'resume';
+let photoDataURL = null;
+let aiProvider = 'anthropic';
+let currentAccent = '#1e3a5f';
+let currentFont = 'dm';
+let currentCols = 2;
+let skills = [];
+let expEntries = [], eduEntries = [], certEntries = [];
+let idCounter = 0;
+
+// ══════════════════════════════════════════
+// SECTION TOGGLE
+// ══════════════════════════════════════════
+function toggleSection(id) {
+  const body = document.getElementById('body-' + id);
+  const arrow = document.getElementById('arrow-' + id);
+  if (!body) return;
+  const open = body.classList.toggle('open');
+  if (arrow) open ? arrow.classList.add('open') : arrow.classList.remove('open');
+}
+
+// ══════════════════════════════════════════
+// MODE (Resume / Cover Letter)
+// ══════════════════════════════════════════
+function setMode(mode, el) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('resumeMode').style.display = mode === 'resume' ? '' : 'none';
+  document.getElementById('clMode').style.display = mode === 'coverletter' ? '' : 'none';
+  mode === 'resume' ? render() : renderCL();
+}
+
+// ══════════════════════════════════════════
+// TEMPLATE
+// ══════════════════════════════════════════
+function setTemplate(t, el) {
+  currentTemplate = t;
+  document.querySelectorAll('.tpill').forEach(p => p.classList.remove('active'));
+  if (el) el.classList.add('active');
+  // Show/hide cols toggle (only Modern supports it meaningfully)
+  const colsNote = document.getElementById('colsNote');
+  if (colsNote) colsNote.style.display = t === 'modern' ? 'none' : '';
+  render();
+}
+
+// ══════════════════════════════════════════
+// ACCENT COLOR
+// ══════════════════════════════════════════
+function setAccent(color, el) {
+  currentAccent = color;
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  if (el) el.classList.add('active');
+  document.getElementById('customColor').value = color;
+  render();
+}
+
+// ══════════════════════════════════════════
+// FONT
+// ══════════════════════════════════════════
+function setFont(val) {
+  currentFont = val;
+  render();
+}
+
+// ══════════════════════════════════════════
+// COLUMNS
+// ══════════════════════════════════════════
+function setCols(n, el) {
+  currentCols = n;
+  document.querySelectorAll('.col-btn').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+  render();
+}
+
+// ══════════════════════════════════════════
+// PHOTO
+// ══════════════════════════════════════════
+const photoZone = document.getElementById('photoZone');
+photoZone.addEventListener('dragover', e => { e.preventDefault(); photoZone.classList.add('drag'); });
+photoZone.addEventListener('dragleave', () => photoZone.classList.remove('drag'));
+photoZone.addEventListener('drop', e => {
+  e.preventDefault(); photoZone.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) loadPhotoFile(file);
+});
+document.getElementById('photoInput').addEventListener('change', e => {
+  if (e.target.files[0]) loadPhotoFile(e.target.files[0]);
+});
+function loadPhotoFile(file) {
+  const reader = new FileReader();
+  reader.onload = ev => {
+    photoDataURL = ev.target.result;
+    document.getElementById('photoPreview').src = photoDataURL;
+    document.getElementById('photoPlaceholder').style.display = 'none';
+    document.getElementById('photoPreviewWrap').style.display = 'block';
+    render();
+  };
+  reader.readAsDataURL(file);
+}
+function removePhoto(e) {
+  e.stopPropagation();
+  photoDataURL = null;
+  document.getElementById('photoInput').value = '';
+  document.getElementById('photoPlaceholder').style.display = 'block';
+  document.getElementById('photoPreviewWrap').style.display = 'none';
+  render();
+}
+
+// ══════════════════════════════════════════
+// SKILLS
+// ══════════════════════════════════════════
+function addSkill() {
+  const inp = document.getElementById('skillInput');
+  const val = inp.value.trim();
+  if (!val) return;
+  val.split(',').forEach(s => { const t = s.trim(); if (t && !skills.includes(t)) skills.push(t); });
+  inp.value = '';
+  renderSkillTags(); render();
+}
+function skillKeydown(e) { if (e.key === 'Enter') { e.preventDefault(); addSkill(); } }
+function removeSkill(idx) { skills.splice(idx, 1); renderSkillTags(); render(); }
+function renderSkillTags() {
+  document.getElementById('skill-tags').innerHTML = skills.map((s, i) =>
+    `<span class="stag">${esc(s)}<button class="stag-x" onclick="removeSkill(${i})" type="button">✕</button></span>`
+  ).join('');
+}
+
+// ══════════════════════════════════════════
+// EXPERIENCE
+// ══════════════════════════════════════════
+function addExp() {
+  expEntries.push({ id: idCounter++, title:'', company:'', location:'', start:'', end:'', current:false, bullets:'' });
+  renderExpList(); render();
+}
+function removeExp(id) { expEntries = expEntries.filter(e => e.id !== id); renderExpList(); render(); }
+function moveExp(id, dir) {
+  const i = expEntries.findIndex(e => e.id === id);
+  const j = i + dir;
+  if (j < 0 || j >= expEntries.length) return;
+  [expEntries[i], expEntries[j]] = [expEntries[j], expEntries[i]];
+  renderExpList(); render();
+}
+function updateExp(id, field, value) {
+  const e = expEntries.find(x => x.id === id);
+  if (!e) return;
+  e[field] = value;
+  if (field === 'current' && value) e.end = 'Present';
+  if (field === 'title' || field === 'company') {
+    const el = document.getElementById(`exp-label-${id}`);
+    if (el) el.textContent = value || (field === 'title' ? 'New Position' : '');
+  }
+  render();
+}
+function renderExpList() {
+  document.getElementById('exp-list').innerHTML = expEntries.map((e, idx) => `
+    <div class="entry-card">
+      <div class="entry-hdr">
+        <div class="entry-title-text" id="exp-label-${e.id}">${esc(e.title || e.company || 'New Position')}</div>
+        <div class="entry-actions">
+          <button class="btn btn-ai btn-sm" onclick="openAI('exp',${e.id})" type="button">✦ AI</button>
+          ${idx > 0 ? `<button class="btn-move btn-sm btn" onclick="moveExp(${e.id},-1)" title="Move up" type="button">↑</button>` : ''}
+          ${idx < expEntries.length-1 ? `<button class="btn-move btn-sm btn" onclick="moveExp(${e.id},1)" title="Move down" type="button">↓</button>` : ''}
+          <button class="btn btn-del btn-sm" onclick="removeExp(${e.id})" type="button">✕</button>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Job Title</label><input value="${esc(e.title)}" placeholder="Product Designer" oninput="updateExp(${e.id},'title',this.value)"></div>
+        <div class="fg"><label>Company</label><input value="${esc(e.company)}" placeholder="Acme Corp" oninput="updateExp(${e.id},'company',this.value)"></div>
+      </div>
+      <div class="frow s1"><div class="fg"><label>Location</label><input value="${esc(e.location)}" placeholder="New York, NY" oninput="updateExp(${e.id},'location',this.value)"></div></div>
+      <div class="frow s3">
+        <div class="fg"><label>Start</label><input value="${esc(e.start)}" placeholder="Jan 2020" oninput="updateExp(${e.id},'start',this.value)"></div>
+        <div class="fg"><label>End</label><input value="${esc(e.end)}" placeholder="Present" oninput="updateExp(${e.id},'end',this.value)" ${e.current?'disabled':''}></div>
+        <div class="fg" style="justify-content:flex-end;padding-top:14px"><label style="display:flex;align-items:center;gap:4px;cursor:pointer;text-transform:none;letter-spacing:0"><input type="checkbox" ${e.current?'checked':''} onchange="updateExp(${e.id},'current',this.checked);rerenderExpInput(${e.id},this.checked)"> Current</label></div>
+      </div>
+      <div class="frow s1"><div class="fg"><label>Bullet Points (one per line)</label>
+        <textarea placeholder="Led redesign of mobile checkout, increasing conversions by 32%&#10;Managed team of 4 designers across 3 product lines" oninput="updateExp(${e.id},'bullets',this.value)">${esc(e.bullets)}</textarea>
+      </div></div>
+    </div>`).join('');
+}
+function rerenderExpInput(id, checked) {
+  updateExp(id, 'current', checked);
+  renderExpList();
+}
+
+// ══════════════════════════════════════════
+// EDUCATION
+// ══════════════════════════════════════════
+function addEdu() {
+  eduEntries.push({ id: idCounter++, degree:'', school:'', location:'', start:'', end:'', gpa:'', notes:'' });
+  renderEduList(); render();
+}
+function removeEdu(id) { eduEntries = eduEntries.filter(e => e.id !== id); renderEduList(); render(); }
+function updateEdu(id, field, value) { const e = eduEntries.find(x => x.id === id); if (e) { e[field] = value; render(); } }
+function renderEduList() {
+  document.getElementById('edu-list').innerHTML = eduEntries.map(e => `
+    <div class="entry-card">
+      <div class="entry-hdr">
+        <div class="entry-title-text">${esc(e.degree || e.school || 'New Education')}</div>
+        <div class="entry-actions"><button class="btn btn-del btn-sm" onclick="removeEdu(${e.id})" type="button">✕</button></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Degree</label><input value="${esc(e.degree)}" placeholder="B.S. Computer Science" oninput="updateEdu(${e.id},'degree',this.value)"></div>
+        <div class="fg"><label>School</label><input value="${esc(e.school)}" placeholder="MIT" oninput="updateEdu(${e.id},'school',this.value)"></div>
+      </div>
+      <div class="frow s3">
+        <div class="fg"><label>Start</label><input value="${esc(e.start)}" placeholder="2018" oninput="updateEdu(${e.id},'start',this.value)"></div>
+        <div class="fg"><label>End</label><input value="${esc(e.end)}" placeholder="2022" oninput="updateEdu(${e.id},'end',this.value)"></div>
+        <div class="fg"><label>GPA</label><input value="${esc(e.gpa)}" placeholder="3.8" oninput="updateEdu(${e.id},'gpa',this.value)"></div>
+      </div>
+      <div class="frow s1"><div class="fg"><label>Honors / Notes</label><input value="${esc(e.notes)}" placeholder="Magna Cum Laude, Dean's List" oninput="updateEdu(${e.id},'notes',this.value)"></div></div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════
+// CERTIFICATIONS
+// ══════════════════════════════════════════
+function addCert() {
+  certEntries.push({ id: idCounter++, name:'', issuer:'', date:'', url:'' });
+  renderCertList(); render();
+}
+function removeCert(id) { certEntries = certEntries.filter(e => e.id !== id); renderCertList(); render(); }
+function updateCert(id, field, value) { const e = certEntries.find(x => x.id === id); if (e) { e[field] = value; render(); } }
+function renderCertList() {
+  document.getElementById('cert-list').innerHTML = certEntries.map(e => `
+    <div class="entry-card">
+      <div class="entry-hdr">
+        <div class="entry-title-text">${esc(e.name || 'New Certification')}</div>
+        <div class="entry-actions"><button class="btn btn-del btn-sm" onclick="removeCert(${e.id})" type="button">✕</button></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Certification Name</label><input value="${esc(e.name)}" placeholder="AWS Solutions Architect" oninput="updateCert(${e.id},'name',this.value)"></div>
+        <div class="fg"><label>Issuer</label><input value="${esc(e.issuer)}" placeholder="Amazon Web Services" oninput="updateCert(${e.id},'issuer',this.value)"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Date</label><input value="${esc(e.date)}" placeholder="Mar 2024" oninput="updateCert(${e.id},'date',this.value)"></div>
+        <div class="fg"><label>Credential URL</label><input value="${esc(e.url)}" placeholder="credly.com/…" oninput="updateCert(${e.id},'url',this.value)"></div>
+      </div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════
+function g(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function bulletsHTML(raw, cls) {
+  if (!raw || !raw.trim()) return '';
+  const lines = raw.split('\n').map(l => l.replace(/^[•\-\*]\s*/,'').trim()).filter(Boolean);
+  if (!lines.length) return '';
+  return `<ul class="r-entry-bullets ${cls||''}">${lines.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`;
+}
+function contactSpans(email,phone,loc,linkedin,web) {
+  return [
+    email ? `<span>✉ ${esc(email)}</span>` : '',
+    phone ? `<span>📞 ${esc(phone)}</span>` : '',
+    loc   ? `<span>📍 ${esc(loc)}</span>` : '',
+    linkedin ? `<span>🔗 ${esc(linkedin)}</span>` : '',
+    web   ? `<span>🌐 ${esc(web)}</span>` : '',
+  ].filter(Boolean).join('');
+}
+function photoEl(cls, phCls, round) {
+  if (!photoDataURL) return `<div class="${phCls}">${round?'👤':'👤'}</div>`;
+  return `<img class="${cls}" src="${photoDataURL}" alt="Photo">`;
+}
+function accentStyle() { return `style="--t-accent:${currentAccent}"` }
+function fontClass() {
+  const map = { dm:'DM Sans', syne:'Syne', crimson:'Crimson Pro', fraunces:'Fraunces' };
+  return map[currentFont] || 'DM Sans';
+}
+
+// ══════════════════════════════════════════
+// RENDER RESUME
+// ══════════════════════════════════════════
+function render() {
+  const page = document.getElementById('resumePage');
+  page.className = `resume-page tpl-${currentTemplate}`;
+  page.setAttribute('style', `--t-accent:${currentAccent};font-family:'${fontClass()}',sans-serif`);
+
+  const fn = g('firstName'), ln = g('lastName');
+  const name = esc((fn + ' ' + ln).trim() || 'Your Name');
+  const title = esc(g('jobTitle'));
+  const email = g('email'), phone = g('phone'), loc = g('location'), linkedin = g('linkedin'), web = g('website');
+  const summary = esc(g('summary'));
+  const contact = contactSpans(email,phone,loc,linkedin,web);
+  const showPhoto = !['minimal','ats','compact'].includes(currentTemplate);
+
+  const builders = {
+    classic: renderClassic, modern: renderModern, minimal: renderMinimal,
+    creative: renderCreative, ats: renderATS, executive: renderExecutive,
+    sidebar: renderSidebar, compact: renderCompact
+  };
+  page.innerHTML = (builders[currentTemplate] || renderClassic)(name, title, contact, summary, showPhoto);
+}
+
+// ── Shared section builders ──
+function expSection(eTitleCls, eSubCls, eDateCls, wrapCls) {
+  return expEntries.map(e => `
+    <div class="${wrapCls||'r-entry'}">
+      <div class="${eTitleCls}">${esc(e.title)}</div>
+      <div class="${eSubCls}">${esc(e.company)}${e.location?' · '+esc(e.location):''}</div>
+      <div class="${eDateCls}">${esc(e.start)}${e.start&&(e.end||e.current)?' – ':''}${e.current?'Present':esc(e.end)}</div>
+      ${bulletsHTML(e.bullets)}
+    </div>`).join('');
+}
+function eduSection(eTitleCls, eSubCls, eDateCls, wrapCls) {
+  return eduEntries.map(e => `
+    <div class="${wrapCls||'r-entry'}">
+      <div class="${eTitleCls}">${esc(e.degree)}</div>
+      <div class="${eSubCls}">${esc(e.school)}${e.gpa?' · GPA '+esc(e.gpa):''}${e.notes?' · '+esc(e.notes):''}</div>
+      <div class="${eDateCls}">${esc(e.start)}${e.start&&e.end?' – ':''}${esc(e.end)}</div>
+    </div>`).join('');
+}
+function certSection(eTitleCls, eSubCls, wrapCls) {
+  return certEntries.map(e => `
+    <div class="${wrapCls||'r-entry'}">
+      <div class="${eTitleCls}">${esc(e.name)}</div>
+      <div class="${eSubCls}">${esc(e.issuer)}${e.date?' · '+esc(e.date):''}</div>
+    </div>`).join('');
+}
+
+// ── 1. Classic ──
+function renderClassic(name, title, contact, summary, showPhoto) {
+  const skillHTML = skills.map(s=>`<span class="r-skill-tag">${esc(s)}</span>`).join('');
+  const ph = showPhoto ? photoEl('r-photo','r-photo-ph',true) : '';
+  return `
+    <div class="r-header">
+      ${ph}<div>
+        <div class="r-name" style="font-family:'${fontClass()}',serif">${name}</div>
+        ${title?`<div class="r-jobTitle">${title}</div>`:''}
+        <div class="r-contact">${contact}</div>
+      </div>
+    </div>
+    <div class="r-body">
+      <div class="r-sidebar">
+        ${summary?`<div class="r-stitle">Profile</div><div class="r-summary">${summary}</div>`:''}
+        ${skills.length?`<div class="r-stitle">Skills</div><div>${skillHTML}</div>`:''}
+        ${certEntries.length?`<div class="r-stitle">Certifications</div>${certSection('r-etitle','r-esub')}`:''}
+      </div>
+      <div class="r-main">
+        ${expEntries.length?`<div class="r-stitle">Experience</div>${expSection('r-etitle','r-esub','r-edate')}`:''}
+        ${eduEntries.length?`<div class="r-stitle">Education</div>${eduSection('r-etitle','r-esub','r-edate')}`:''}
+      </div>
+    </div>`;
+}
+
+// ── 2. Modern ──
+function renderModern(name, title, contact, summary, showPhoto) {
+  const skillHTML = skills.map(s=>`<span class="r-skill-tag">${esc(s)}</span>`).join('');
+  const ph = showPhoto ? photoEl('r-photo','r-photo-ph',false) : '';
+  const colClass = currentCols === 1 ? 'cols-1' : 'cols-2';
+  const mainContent = `
+    ${summary?`<div class="r-stitle">Summary</div><div class="r-summary">${summary}</div>`:''}
+    ${expEntries.length?`<div class="r-stitle">Experience</div>${expSection('r-etitle','r-esub','r-edate')}`:''}
+    ${eduEntries.length?`<div class="r-stitle">Education</div>${eduSection('r-etitle','r-esub','r-edate')}`:''}`;
+  const sideContent = `
+    ${skills.length?`<div class="r-stitle">Skills</div><div style="margin-bottom:12px">${skillHTML}</div>`:''}
+    ${certEntries.length?`<div class="r-stitle">Certifications</div>${certSection('r-etitle','r-esub')}`:''}`;
+  return `
+    <div class="r-header">
+      ${ph}<div>
+        <div class="r-name" style="font-family:'${fontClass()}',sans-serif">${name}</div>
+        ${title?`<div class="r-jobTitle">${title}</div>`:''}
+        <div class="r-contact">${contact}</div>
+      </div>
+    </div>
+    <div class="r-body ${colClass}">
+      <div>${mainContent}</div>
+      ${currentCols===2?`<div>${sideContent}</div>`:`<div style="display:none">${sideContent}</div>`}
+    </div>`;
+}
+
+// ── 3. Minimal ──
+function renderMinimal(name, title, contact, summary) {
+  return `
+    <div class="r-header">
+      <div class="r-name" style="font-family:'${fontClass()}',sans-serif">${name}</div>
+      ${title?`<div class="r-jobTitle">${title}</div>`:''}
+      <div class="r-contact">${contact}</div>
+    </div>
+    <div class="r-body">
+      ${summary?`<div class="r-stitle">Profile</div><div class="r-entry full" style="border-bottom:1px solid #f0f0f0;padding-bottom:14px;margin-bottom:0"><div class="r-summary">${summary}</div></div>`:''}
+      ${expEntries.length?`<div class="r-stitle">Experience</div>${expEntries.map(e=>`
+        <div class="r-entry">
+          <div class="r-entry-meta">${esc(e.start)}${e.start&&(e.end||e.current)?' – ':''}${e.current?'Present':esc(e.end)}<br><span style="color:#bbb">${esc(e.location)}</span></div>
+          <div>
+            <div class="r-etitle">${esc(e.title)}</div>
+            <div class="r-esub">${esc(e.company)}</div>
+            ${bulletsHTML(e.bullets)}
+          </div>
+        </div>`).join('')}`:''}
+      ${eduEntries.length?`<div class="r-stitle">Education</div>${eduEntries.map(e=>`
+        <div class="r-entry">
+          <div class="r-entry-meta">${esc(e.start)}${e.start&&e.end?' – ':''}${esc(e.end)}</div>
+          <div>
+            <div class="r-etitle">${esc(e.degree)}</div>
+            <div class="r-esub">${esc(e.school)}${e.gpa?' · GPA '+esc(e.gpa):''}</div>
+            ${e.notes?`<div style="font-size:10px;color:#999">${esc(e.notes)}</div>`:''}
+          </div>
+        </div>`).join('')}`:''}
+      ${skills.length?`<div class="r-stitle">Skills</div><div class="r-entry full" style="border-bottom:none"><div class="r-skill-list">${skills.map(s=>esc(s)).join(' · ')}</div></div>`:''}
+      ${certEntries.length?`<div class="r-stitle">Certifications</div>${certEntries.map(e=>`<div class="r-entry"><div class="r-entry-meta">${esc(e.date)}</div><div><div class="r-etitle">${esc(e.name)}</div><div class="r-esub">${esc(e.issuer)}</div></div></div>`).join('')}`:''}
+    </div>`;
+}
+
+// ── 4. Creative ──
+function renderCreative(name, title, contact, summary, showPhoto) {
+  const ph = showPhoto ? photoEl('r-photo','r-photo-ph',true) : '';
+  return `
+    <div class="r-header" style="background:linear-gradient(135deg,${currentAccent},${adjustColor(currentAccent,40)})">
+      ${ph}<div>
+        <div class="r-name" style="font-family:'${fontClass()}',serif">${name}</div>
+        ${title?`<div class="r-jobTitle">${title}</div>`:''}
+        <div class="r-contact">${contact}</div>
+      </div>
+    </div>
+    <div class="r-body">
+      <div class="r-sidebar">
+        ${skills.length?`<div class="r-stitle">Skills</div>${skills.map(s=>`<div class="r-skill-tag">${esc(s)}</div>`).join('')}`:''}
+        ${certEntries.length?`<div class="r-stitle">Certifications</div>${certSection('r-etitle','r-esub')}`:''}
+      </div>
+      <div class="r-main">
+        ${summary?`<div class="r-stitle">About</div><div class="r-summary" style="margin-bottom:8px">${summary}</div>`:''}
+        ${expEntries.length?`<div class="r-stitle">Experience</div>${expSection('r-etitle','r-esub','r-edate')}`:''}
+        ${eduEntries.length?`<div class="r-stitle">Education</div>${eduSection('r-etitle','r-esub','r-edate')}`:''}
+      </div>
+    </div>`;
+}
+
+// ── 5. ATS ──
+function renderATS(name, title, contact, summary) {
+  return `
+    <div class="r-header">
+      <div class="r-name">${name}</div>
+      ${title?`<div class="r-jobTitle">${title}</div>`:''}
+      <div class="r-contact">${contact}</div>
+    </div>
+    <div class="r-body">
+      ${summary?`<div class="r-stitle">Professional Summary</div><div class="r-summary" style="margin-bottom:8px">${summary}</div>`:''}
+      ${expEntries.length?`<div class="r-stitle">Work Experience</div>${expEntries.map(e=>`
+        <div class="r-entry">
+          <div class="r-ehdr"><div class="r-etitle">${esc(e.title)}, ${esc(e.company)}</div><div class="r-edate">${esc(e.start)}${e.start&&(e.end||e.current)?' – ':''}${e.current?'Present':esc(e.end)}</div></div>
+          ${e.location?`<div class="r-esub">${esc(e.location)}</div>`:''}
+          ${bulletsHTML(e.bullets)}
+        </div>`).join('')}`:''}
+      ${eduEntries.length?`<div class="r-stitle">Education</div>${eduEntries.map(e=>`
+        <div class="r-entry">
+          <div class="r-ehdr"><div class="r-etitle">${esc(e.degree)}, ${esc(e.school)}</div><div class="r-edate">${esc(e.start)}${e.start&&e.end?' – ':''}${esc(e.end)}</div></div>
+          ${e.gpa||e.notes?`<div class="r-esub">${e.gpa?'GPA: '+esc(e.gpa):''}${e.gpa&&e.notes?' · ':''}${esc(e.notes)}</div>`:''}</div>`).join('')}`:''}
+      ${skills.length?`<div class="r-stitle">Skills</div><div class="r-skill-list">${skills.map(s=>esc(s)).join(', ')}</div>`:''}
+      ${certEntries.length?`<div class="r-stitle">Certifications</div>${certEntries.map(e=>`<div class="r-entry"><div class="r-ehdr"><div class="r-etitle">${esc(e.name)}</div><div class="r-edate">${esc(e.date)}</div></div>${e.issuer?`<div class="r-esub">${esc(e.issuer)}</div>`:''}</div>`).join('')}`:''}
+    </div>`;
+}
+
+// ── 6. Executive ──
+function renderExecutive(name, title, contact, summary, showPhoto) {
+  const ph = showPhoto ? photoEl('r-photo','r-photo-ph',true) : '';
+  const skillHTML = skills.map(s=>`<span class="r-skill-tag">${esc(s)}</span>`).join('');
+  return `
+    <div class="r-header">
+      ${ph}
+      <div class="r-name" style="font-family:'${fontClass()}',serif">${name}</div>
+      ${title?`<div class="r-jobTitle">${title}</div>`:''}
+      <div class="r-contact">${contact}</div>
+    </div>
+    <div class="r-body">
+      ${summary?`<div class="r-stitle">Executive Profile</div><div class="r-summary">${summary}</div>`:''}
+      ${expEntries.length?`<div class="r-stitle">Professional Experience</div>${expSection('r-etitle','r-esub','r-edate')}`:''}
+      ${eduEntries.length?`<div class="r-stitle">Education</div>${eduSection('r-etitle','r-esub','r-edate')}`:''}
+      ${skills.length?`<div class="r-stitle">Core Competencies</div><div style="margin-bottom:8px">${skillHTML}</div>`:''}
+      ${certEntries.length?`<div class="r-stitle">Certifications</div>${certSection('r-etitle','r-esub')}`:''}
+    </div>`;
+}
+
+// ── 7. Sidebar-Left ──
+function renderSidebar(name, title, contact, summary, showPhoto) {
+  const ph = showPhoto ? photoEl('r-photo','r-photo-ph',true) : '';
+  const contactBlocks = [g('email'),g('phone'),g('location'),g('linkedin'),g('website')].filter(Boolean).map(v=>`<span>${esc(v)}</span>`).join('');
+  return `
+    <div class="r-outer">
+      <div class="r-left">
+        ${ph}
+        <div class="r-name" style="font-family:'${fontClass()}',serif">${name}</div>
+        ${title?`<div class="r-jobTitle">${title}</div>`:''}
+        <div class="r-stitle-left">Contact</div>
+        <div class="r-contact">${contactBlocks}</div>
+        ${skills.length?`<div class="r-stitle-left">Skills</div>${skills.map(s=>`<div class="r-skill-left">${esc(s)}</div>`).join('')}`:''}
+        ${certEntries.length?`<div class="r-stitle-left">Certifications</div>${certEntries.map(e=>`<div class="r-cert"><b>${esc(e.name)}</b><br>${esc(e.issuer)} ${esc(e.date)}</div>`).join('')}`:''}
+      </div>
+      <div class="r-right">
+        ${summary?`<div class="r-stitle-right">Profile</div><div class="r-summary" style="font-size:11px;color:#475569;line-height:1.7;margin-bottom:8px">${summary}</div>`:''}
+        ${expEntries.length?`<div class="r-stitle-right">Experience</div>${expSection('r-etitle','r-esub','r-edate')}`:''}
+        ${eduEntries.length?`<div class="r-stitle-right">Education</div>${eduSection('r-etitle','r-esub','r-edate')}`:''}
+      </div>
+    </div>`;
+}
+
+// ── 8. Compact ──
+function renderCompact(name, title, contact, summary) {
+  const contactLines = [g('email'),g('phone'),g('location'),g('linkedin'),g('website')].filter(Boolean).map(v=>`<span>${esc(v)}</span>`).join('');
+  return `
+    <div class="r-header" style="background:${currentAccent}">
+      <div class="r-header-left">
+        <div class="r-name" style="font-family:'${fontClass()}',sans-serif">${name}</div>
+        ${title?`<div class="r-jobTitle">${title}</div>`:''}
+      </div>
+      <div class="r-contact">${contactLines}</div>
+    </div>
+    <div class="r-body">
+      ${summary?`<div class="r-stitle">Summary</div><div class="r-summary">${summary}</div>`:''}
+      ${expEntries.length?`<div class="r-stitle">Experience</div>${expSection('r-etitle','r-esub','r-edate')}`:''}
+      <div class="r-col-break"></div>
+      ${eduEntries.length?`<div class="r-stitle">Education</div>${eduSection('r-etitle','r-esub','r-edate')}`:''}
+      ${skills.length?`<div class="r-stitle">Skills</div><div class="r-skill-inline">${skills.map(s=>esc(s)).join(' · ')}</div>`:''}
+      ${certEntries.length?`<div class="r-stitle">Certifications</div>${certSection('r-etitle','r-esub')}`:''}
+    </div>`;
+}
+
+// Color lightening helper for creative gradient
+function adjustColor(hex, amount) {
+  try {
+    const r = Math.min(255,parseInt(hex.slice(1,3),16)+amount);
+    const g = Math.min(255,parseInt(hex.slice(3,5),16)+amount);
+    const b = Math.min(255,parseInt(hex.slice(5,7),16)+amount);
+    return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+  } catch(e) { return hex; }
+}
+
+// ══════════════════════════════════════════
+// COVER LETTER RENDER
+// ══════════════════════════════════════════
+function renderCL() {
+  const page = document.getElementById('resumePage');
+  const fn = g('firstName'), ln = g('lastName');
+  const name = (fn+' '+ln).trim() || 'Your Name';
+  const manager = g('clManager') || 'Hiring Manager';
+  const company = g('clCompany') || '[Company Name]';
+  const jobT = g('clJobTitle') || 'this position';
+  const openP = g('clOpen') || 'I am writing to express my interest in the role…';
+  const bodyP = g('clBody') || '';
+  const closeP = g('clClose') || 'I would welcome the opportunity to discuss how my background aligns with your needs. Thank you for your consideration.';
+  const email = g('email'), phone = g('phone'), loc = g('location');
+
+  page.className = 'resume-page';
+  page.setAttribute('style', `--t-accent:${currentAccent};font-family:'${fontClass()}',sans-serif`);
+  page.innerHTML = `
+    <div style="padding:52px 56px;font-family:'DM Sans',sans-serif;color:#1a1a1a;line-height:1.7">
+      <div style="border-bottom:3px solid ${currentAccent};padding-bottom:20px;margin-bottom:32px">
+        <div style="font-size:24px;font-weight:700;color:${currentAccent};font-family:'${fontClass()}',serif;margin-bottom:4px">${esc(name)}</div>
+        <div style="font-size:11px;color:#666;display:flex;gap:16px;flex-wrap:wrap">
+          ${email?`<span>✉ ${esc(email)}</span>`:''}
+          ${phone?`<span>📞 ${esc(phone)}</span>`:''}
+          ${loc?`<span>📍 ${esc(loc)}</span>`:''}
+        </div>
+      </div>
+      <div style="margin-bottom:24px;font-size:12px;color:#555">
+        <div>${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</div>
+      </div>
+      <div style="margin-bottom:24px;font-size:12px;color:#333">
+        <div style="font-weight:600">${esc(manager)}</div>
+        <div>${esc(company)}</div>
+      </div>
+      <div style="margin-bottom:20px;font-size:12px"><b>Re: Application for ${esc(jobT)}</b></div>
+      <p style="font-size:12px;margin-bottom:16px">${esc(openP)}</p>
+      ${bodyP?`<p style="font-size:12px;margin-bottom:16px">${esc(bodyP)}</p>`:''}
+      <p style="font-size:12px;margin-bottom:32px">${esc(closeP)}</p>
+      <div style="font-size:12px">
+        <div style="margin-bottom:4px">Sincerely,</div>
+        <div style="font-family:'${fontClass()}',serif;font-size:18px;color:${currentAccent};margin:8px 0">${esc(name)}</div>
+      </div>
+    </div>`;
+}
+
+// ══════════════════════════════════════════
+// AI
+// ══════════════════════════════════════════
+function setProvider(p, el) {
+  aiProvider = p;
+  document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  loadKey();
+}
+function saveKey() { localStorage.setItem('rf_key_'+aiProvider, document.getElementById('aiKey').value); }
+function loadKey() { document.getElementById('aiKey').value = localStorage.getItem('rf_key_'+aiProvider) || ''; }
+
+let aiTarget = null;
+function openAI(target, entryId) {
+  aiTarget = { target, entryId };
+  document.getElementById('aiModal').classList.add('open');
+  document.getElementById('aiPromptInput').value = '';
+  document.getElementById('aiResult').style.display = 'none';
+  document.getElementById('aiStatus').textContent = '';
+  document.getElementById('aiResultText').value = '';
+  const typeEl = document.getElementById('aiOutputType');
+  if (target === 'summary') typeEl.value = 'summary';
+  else if (target === 'coverletter') typeEl.value = 'coverletter';
+  else typeEl.value = 'bullets';
+  updateAIOutputType();
+  loadKey();
+}
+function closeAI() { document.getElementById('aiModal').classList.remove('open'); }
+function updateAIOutputType() {
+  const t = document.getElementById('aiOutputType').value;
+  document.getElementById('aiExistingWrap').style.display = t === 'improve' ? 'block' : 'none';
+}
+
+async function runAI() {
+  const key = document.getElementById('aiKey').value.trim();
+  if (!key) { showToast('Please enter an API key in AI Settings', 'error'); return; }
+  const prompt = document.getElementById('aiPromptInput').value.trim();
+  if (!prompt) { showToast('Please describe the role or task', 'error'); return; }
+  const outputType = document.getElementById('aiOutputType').value;
+  const existing = document.getElementById('aiExistingText').value.trim();
+
+  const sys = 'You are an expert resume and cover letter writer. Write concise, impactful, ATS-friendly professional content. Use strong action verbs. Quantify achievements where possible. Return ONLY the requested content with no preamble or explanation.';
+  let msg = '';
+  if (outputType === 'bullets') msg = `Write 4-5 strong resume bullet points for this role:\n${prompt}\nOne bullet per line, start each with an action verb, include metrics where possible.`;
+  else if (outputType === 'summary') msg = `Write a professional resume summary (3-4 sentences) for:\n${prompt}`;
+  else if (outputType === 'coverletter') msg = `Write a professional cover letter body (opening, 2 body paragraphs, closing) for:\n${prompt}\nReturn just the letter body paragraphs, no salutation or sign-off.`;
+  else msg = `Improve this resume content to be more impactful and ATS-friendly:\n${existing}\nContext: ${prompt}`;
+
+  const status = document.getElementById('aiStatus');
+  const runBtn = document.getElementById('aiRunBtn');
+  status.textContent = '⏳ Generating…';
+  runBtn.disabled = true;
+
+  try {
+    let result = '';
+    if (aiProvider === 'anthropic') {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+        body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:800,system:sys,messages:[{role:'user',content:msg}]})
+      });
+      const d = await res.json();
+      if (d.error) throw new Error(d.error.message);
+      result = d.content[0].text;
+    } else if (aiProvider === 'openai') {
+      const res = await fetch('https://api.openai.com/v1/chat/completions', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+        body:JSON.stringify({model:'gpt-4o-mini',max_tokens:800,messages:[{role:'system',content:sys},{role:'user',content:msg}]})
+      });
+      const d = await res.json();
+      if (d.error) throw new Error(d.error.message);
+      result = d.choices[0].message.content;
+    } else {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({contents:[{parts:[{text:sys+'\n\n'+msg}]}]})
+      });
+      const d = await res.json();
+      if (d.error) throw new Error(d.error.message);
+      result = d.candidates[0].content.parts[0].text;
+    }
+    document.getElementById('aiResultText').value = result;
+    document.getElementById('aiResult').style.display = 'block';
+    status.textContent = '✓ Done';
+  } catch(err) {
+    status.textContent = '✕ ' + err.message;
+    showToast('AI error: ' + err.message, 'error');
+  }
+  runBtn.disabled = false;
+}
+
+function copyAIResult() {
+  navigator.clipboard.writeText(document.getElementById('aiResultText').value)
+    .then(() => showToast('Copied to clipboard!', 'success'))
+    .catch(() => showToast('Could not copy — try manually selecting', 'error'));
+}
+
+// ══════════════════════════════════════════
+// PDF EXPORT
+// ══════════════════════════════════════════
+async function downloadResume() {
+  const method = document.getElementById('exportMethod').value;
+  const fname = ((g('firstName')||'')+'_'+(g('lastName')||'')).replace(/\s+/g,'_').replace(/^_|_$/g,'') || 'resume';
+  const page = document.getElementById('resumePage');
+  if (method === 'print') { window.print(); return; }
+  showLoading(true, method === 'html2canvas' ? 'Rendering (high quality)…' : 'Generating PDF…');
+  try {
+    const scale = method === 'html2canvas' ? 2.5 : 2;
+    const canvas = await html2canvas(page, { scale, useCORS:true, allowTaint:true, backgroundColor:'#ffffff', logging:false });
+    const imgData = canvas.toDataURL(method === 'html2canvas' ? 'image/png' : 'image/jpeg', 0.95);
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
+    const pW = pdf.internal.pageSize.getWidth();
+    const pH = (canvas.height * pW) / canvas.width * (25.4/96);
+    const maxH = pdf.internal.pageSize.getHeight();
+    pdf.addImage(imgData, method === 'html2canvas' ? 'PNG' : 'JPEG', 0, 0, pW, Math.min(pH, maxH));
+    pdf.save(`${fname}_resume.pdf`);
+    showToast('PDF downloaded!', 'success');
+  } catch(err) {
+    showToast('PDF error: ' + err.message, 'error');
+  }
+  showLoading(false);
+}
+
+function showLoading(v, txt) {
+  const el = document.getElementById('loadingOverlay');
+  el.classList.toggle('show', v);
+  if (txt) document.getElementById('loadingTxt').textContent = txt;
+}
+
+// ══════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+// ══════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════
+loadKey();
+addExp();
+addEdu();
+render();
+</script>
+</body>
+</html>

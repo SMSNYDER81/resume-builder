@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#0f1a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#63b3ff"/>
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#132035"/>
+      <stop offset="100%" stop-color="#0f1a2e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <g stroke="rgba(99,179,255,0.05)" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Mock resume card - right side -->
+  <rect x="680" y="60" width="460" height="510" rx="12" fill="url(#card-grad)" stroke="rgba(99,179,255,0.18)" stroke-width="1"/>
+
+  <!-- Card header bar -->
+  <rect x="680" y="60" width="460" height="90" rx="12" fill="#1e3a5f"/>
+  <rect x="680" y="120" width="460" height="30" rx="0" fill="#1e3a5f"/>
+
+  <!-- Card header content -->
+  <circle cx="730" cy="100" r="28" fill="rgba(255,255,255,0.15)"/>
+  <rect x="770" y="78" width="140" height="14" rx="4" fill="rgba(255,255,255,0.7)"/>
+  <rect x="770" y="100" width="100" height="9" rx="3" fill="rgba(255,255,255,0.4)"/>
+  <rect x="770" y="116" width="180" height="8" rx="3" fill="rgba(255,255,255,0.25)"/>
+
+  <!-- Card body lines (simulating resume content) -->
+  <!-- Section header -->
+  <rect x="704" y="168" width="60" height="8" rx="2" fill="#3b82f6" opacity="0.8"/>
+  <rect x="772" y="171" width="340" height="1" fill="rgba(99,179,255,0.2)"/>
+  <!-- Content lines -->
+  <rect x="704" y="186" width="200" height="9" rx="3" fill="rgba(238,244,255,0.6)"/>
+  <rect x="704" y="202" width="150" height="7" rx="2" fill="rgba(160,192,222,0.4)"/>
+  <rect x="704" y="215" width="80" height="6" rx="2" fill="rgba(99,179,255,0.3)"/>
+  <rect x="704" y="228" width="340" height="6" rx="2" fill="rgba(160,192,222,0.2)"/>
+  <rect x="704" y="240" width="280" height="6" rx="2" fill="rgba(160,192,222,0.2)"/>
+  <rect x="704" y="252" width="310" height="6" rx="2" fill="rgba(160,192,222,0.2)"/>
+
+  <!-- Section 2 -->
+  <rect x="704" y="276" width="80" height="8" rx="2" fill="#3b82f6" opacity="0.8"/>
+  <rect x="792" y="279" width="252" height="1" fill="rgba(99,179,255,0.2)"/>
+  <rect x="704" y="294" width="190" height="9" rx="3" fill="rgba(238,244,255,0.6)"/>
+  <rect x="704" y="310" width="130" height="7" rx="2" fill="rgba(160,192,222,0.4)"/>
+  <rect x="704" y="323" width="340" height="6" rx="2" fill="rgba(160,192,222,0.2)"/>
+  <rect x="704" y="335" width="260" height="6" rx="2" fill="rgba(160,192,222,0.2)"/>
+
+  <!-- Section 3 -->
+  <rect x="704" y="360" width="50" height="8" rx="2" fill="#3b82f6" opacity="0.8"/>
+  <rect x="762" y="363" width="282" height="1" fill="rgba(99,179,255,0.2)"/>
+  <!-- Skill tags -->
+  <rect x="704" y="378" width="72" height="18" rx="9" fill="rgba(59,130,246,0.15)" stroke="rgba(99,179,255,0.3)" stroke-width="1"/>
+  <rect x="784" y="378" width="60" height="18" rx="9" fill="rgba(59,130,246,0.15)" stroke="rgba(99,179,255,0.3)" stroke-width="1"/>
+  <rect x="852" y="378" width="80" height="18" rx="9" fill="rgba(59,130,246,0.15)" stroke="rgba(99,179,255,0.3)" stroke-width="1"/>
+  <rect x="940" y="378" width="56" height="18" rx="9" fill="rgba(59,130,246,0.15)" stroke="rgba(99,179,255,0.3)" stroke-width="1"/>
+  <rect x="704" y="404" width="68" height="18" rx="9" fill="rgba(59,130,246,0.15)" stroke="rgba(99,179,255,0.3)" stroke-width="1"/>
+  <rect x="780" y="404" width="90" height="18" rx="9" fill="rgba(59,130,246,0.15)" stroke="rgba(99,179,255,0.3)" stroke-width="1"/>
+
+  <!-- Download button on card -->
+  <rect x="704" y="490" width="120" height="32" rx="7" fill="#3b82f6"/>
+  <rect x="836" y="490" width="100" height="32" rx="7" fill="transparent" stroke="rgba(99,179,255,0.3)" stroke-width="1"/>
+
+  <!-- Left content: branding + features -->
+
+  <!-- Brand name -->
+  <text x="72" y="172" font-family="'IBM Plex Mono', monospace" font-size="52" font-weight="500" fill="#63b3ff" letter-spacing="-1">resume</text>
+  <text x="72" y="172" font-family="'IBM Plex Mono', monospace" font-size="52" font-weight="500" fill="#63b3ff" letter-spacing="-1">
+    <tspan fill="#63b3ff">resume</tspan><tspan fill="#eef4ff">forge</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="72" y="218" font-family="'DM Sans', sans-serif" font-size="24" font-weight="300" fill="#a0c0de">Free Resume Builder — No Account Needed</text>
+
+  <!-- Divider -->
+  <rect x="72" y="248" width="480" height="2" rx="1" fill="url(#accent)" opacity="0.5"/>
+
+  <!-- Feature list -->
+  <g font-family="'IBM Plex Mono', monospace" font-size="17" fill="#a0c0de">
+    <text x="72" y="294">
+      <tspan fill="#4ade80">✓</tspan>  8 professional templates
+    </text>
+    <text x="72" y="326">
+      <tspan fill="#4ade80">✓</tspan>  10+ color themes + custom picker
+    </text>
+    <text x="72" y="358">
+      <tspan fill="#4ade80">✓</tspan>  AI bullet point assistant
+    </text>
+    <text x="72" y="390">
+      <tspan fill="#4ade80">✓</tspan>  Resume + Cover Letter modes
+    </text>
+    <text x="72" y="422">
+      <tspan fill="#4ade80">✓</tspan>  Instant PDF download — always free
+    </text>
+    <text x="72" y="454">
+      <tspan fill="#4ade80">✓</tspan>  100% private — no data sent anywhere
+    </text>
+  </g>
+
+  <!-- Bottom URL badge -->
+  <rect x="72" y="492" width="220" height="36" rx="8" fill="rgba(59,130,246,0.12)" stroke="rgba(99,179,255,0.25)" stroke-width="1"/>
+  <text x="182" y="516" font-family="'IBM Plex Mono', monospace" font-size="15" fill="#63b3ff" text-anchor="middle" letter-spacing="0.05em">the-resume-forge.com</text>
+
+  <!-- Top-right decorative dots -->
+  <circle cx="1160" cy="40" r="3" fill="rgba(99,179,255,0.3)"/>
+  <circle cx="1140" cy="40" r="3" fill="rgba(99,179,255,0.2)"/>
+  <circle cx="1120" cy="40" r="3" fill="rgba(99,179,255,0.1)"/>
+</svg>
