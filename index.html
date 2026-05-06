@@ -42,20 +42,18 @@ body{background:var(--bg);color:var(--text);font-family:var(--syne);font-size:13
 /* ═══ TOPBAR ═══ */
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  height:52px;background:rgba(10,16,32,0.97);backdrop-filter:blur(16px);
+  height:48px;background:rgba(10,16,32,0.97);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border2);
-  display:flex;align-items:center;padding:0 12px;gap:8px;
-  overflow:hidden;
+  display:flex;align-items:center;padding:0 10px;gap:6px;
+  overflow:visible;
 }
-.brand{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--blue);letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;text-decoration:none}
+.brand{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--blue);letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;text-decoration:none;margin-right:2px}
 .brand b{color:var(--text)}
-.brand-tag{display:none}
-.topbar-sep{flex:1;min-width:4px}
-.tlabel{font-family:var(--mono);font-size:9px;color:var(--text2);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.topbar-right{display:flex;align-items:center;gap:6px;flex-shrink:0;margin-left:auto}
 
 /* tab switcher (Resume / Cover Letter) */
 .mode-tabs{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px;gap:2px;flex-shrink:0}
-.mode-tab{font-family:var(--mono);font-size:10px;padding:5px 11px;border-radius:4px;cursor:pointer;border:none;background:transparent;color:var(--text2);transition:var(--t);white-space:nowrap}
+.mode-tab{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:4px;cursor:pointer;border:none;background:transparent;color:var(--text2);transition:var(--t);white-space:nowrap}
 .mode-tab.active{background:var(--blue2);color:#fff;font-weight:500}
 
 .tpills{display:flex;gap:3px;flex-wrap:nowrap;flex-shrink:1;min-width:0;overflow:hidden}
@@ -63,8 +61,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--syne);font-size:13
 .tpill:hover{border-color:var(--blue);color:var(--blue)}
 .tpill.active{background:var(--blue-dim);border-color:var(--blue);color:var(--blue);font-weight:500}
 
-.export-sel{font-family:var(--mono);font-size:10px;background:var(--bg3);border:1px solid var(--border2);color:#b0cce8;padding:6px 8px;border-radius:6px;cursor:pointer;outline:none;flex-shrink:0}
-.btn{font-family:var(--syne);font-size:12px;font-weight:700;padding:8px 16px;border-radius:7px;cursor:pointer;border:none;transition:var(--t);letter-spacing:0.04em;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;flex-shrink:0}
+.export-sel{font-family:var(--mono);font-size:10px;background:var(--bg3);border:1px solid var(--border2);color:#b0cce8;padding:5px 6px;border-radius:6px;cursor:pointer;outline:none;flex-shrink:0;max-width:110px}
+.btn{font-family:var(--syne);font-size:11px;font-weight:700;padding:6px 12px;border-radius:6px;cursor:pointer;border:none;transition:var(--t);letter-spacing:0.03em;white-space:nowrap;display:inline-flex;align-items:center;gap:4px;flex-shrink:0}
 .btn-primary{background:var(--blue2);color:#fff}
 .btn-primary:hover{background:#2563eb;transform:translateY(-1px)}
 .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--text2)}
@@ -81,13 +79,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--syne);font-size:13
 /* ═══ SUBNAV (template pills row) ═══ */
 .subnav{position:fixed;top:52px;left:0;right:0;z-index:199;height:36px;background:rgba(10,16,32,0.98);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px;gap:8px}
 .subnav-right{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}
-.tpills{display:flex;gap:4px;flex-wrap:nowrap}
-.tpill{font-family:var(--mono);font-size:9px;padding:5px 11px;border-radius:20px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:var(--t);white-space:nowrap}
+.tpills{display:flex;gap:3px;flex-wrap:nowrap;flex-shrink:1}
+.tpill{font-family:var(--mono);font-size:9px;padding:4px 8px;border-radius:20px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:var(--t);white-space:nowrap}
 .tpill:hover{border-color:var(--blue);color:var(--blue)}
 .tpill.active{background:var(--blue-dim);border-color:var(--blue);color:var(--blue);font-weight:500}
 
 /* ═══ LAYOUT ═══ */
-.app{display:flex;height:calc(100vh - 88px);margin-top:88px}
+.app{display:flex;height:calc(100vh - 48px);margin-top:48px}
 
 /* ═══ EDITOR ═══ */
 .editor{width:390px;min-width:300px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--border2);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent}
@@ -406,11 +404,6 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
     <button class="mode-tab active" onclick="setMode('resume',this)" type="button">📄 Resume</button>
     <button class="mode-tab" onclick="setMode('coverletter',this)" type="button">✉ Cover Letter</button>
   </div>
-</div>
-
-<!-- TEMPLATE + EXPORT SUB-NAV -->
-<div class="subnav">
-  <span class="tlabel">Template</span>
   <div class="tpills" id="templatePills">
     <button class="tpill active" onclick="setTemplate('classic',this)" type="button">Classic</button>
     <button class="tpill" onclick="setTemplate('modern',this)" type="button">Modern</button>
@@ -421,14 +414,14 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
     <button class="tpill" onclick="setTemplate('compact',this)" type="button">Compact</button>
     <button class="tpill" onclick="setTemplate('ats',this)" type="button">ATS</button>
   </div>
-  <div class="subnav-right">
+  <div class="topbar-right">
     <select class="export-sel" id="exportMethod">
       <option value="print">Print / PDF</option>
       <option value="jspdf">jsPDF</option>
       <option value="html2canvas">html2canvas</option>
     </select>
-    <button class="btn btn-primary" onclick="downloadResume()" type="button">⬇ Download PDF</button>
-    <a href="blog/" class="btn btn-ghost" style="font-size:10px">📝 Blog</a>
+    <button class="btn btn-primary" onclick="downloadResume()" type="button">⬇ PDF</button>
+    <a href="blog/" class="btn btn-ghost btn-sm">Blog</a>
   </div>
 </div>
 
