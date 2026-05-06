@@ -175,7 +175,7 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
 .preview-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden}
 
 /* Ad zone — top of preview */
-.ad-zone-top{height:90px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ad-zone-top{display:none}
 .ad-placeholder{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;border:1px dashed var(--border);border-radius:4px;padding:8px 24px}
 
 .preview{flex:1;overflow:auto;background:#d8d8d8;padding:20px;display:flex;justify-content:center;gap:20px;scrollbar-width:thin}
@@ -183,8 +183,8 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
 .preview::-webkit-scrollbar-thumb{background:#bbb;border-radius:3px}
 
 /* Ad zone — right sidebar of preview */
-.ad-zone-side{width:160px;flex-shrink:0;display:flex;flex-direction:column;gap:12px;padding:0}
-.ad-zone-side .ad-placeholder{writing-mode:horizontal-tb;width:160px;height:600px;display:flex;align-items:center;justify-content:center;padding:0}
+.ad-zone-side{display:none}
+
 
 .resume-page{width:794px;min-height:1122px;background:#fff;box-shadow:0 4px 40px rgba(0,0,0,0.3);flex-shrink:0;position:relative;overflow:hidden;font-size:13px}
 
@@ -407,9 +407,9 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
   </div>
   <div class="topbar-sep"></div>
   <select class="export-sel" id="exportMethod">
-    <option value="print">Print / Save PDF</option>
-    <option value="jspdf">jsPDF (fast)</option>
-    <option value="html2canvas">html2canvas (exact)</option>
+    <option value="print">Print / PDF</option>
+    <option value="jspdf">jsPDF</option>
+    <option value="html2canvas">html2canvas</option>
   </select>
   <button class="btn btn-primary" onclick="downloadResume()" type="button">⬇ Download PDF</button>
   <a href="blog/" class="btn btn-ghost" style="font-size:10px">📝 Blog</a>
