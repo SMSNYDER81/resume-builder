@@ -2,7 +2,7 @@
 
 A free, privacy-first resume builder that runs entirely in the browser. No account, no subscription, no data sent to any server.
 
-**Live site:** [resumeforge.net](https://resumeforge.net)
+**Live site:** [thefreeresumebuilder.com](https://thefreeresumebuilder.com)
 
 ## Features
 
@@ -33,7 +33,7 @@ A free, privacy-first resume builder that runs entirely in the browser. No accou
 ├── index.html          # Main resume builder
 ├── about.html          # About page
 ├── privacy.html        # Privacy policy
-├── ads.txt             # AdSense authorization
+├── ads.txt             # Ad network / verification records
 ├── sitemap.xml
 ├── robots.txt
 ├── feedback.js         # Feedback toast + exit intent modal

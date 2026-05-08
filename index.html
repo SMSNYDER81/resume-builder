@@ -3,22 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ResumeForge — Free Resume Builder | No Account, No Subscription</title>
-<meta name="description" content="Build a professional resume free in your browser. 8 templates, color themes, font choices, AI bullet assist, and instant PDF download. No account required. 100% private.">
+<title>ResumeForge — Free Resume Builder | No Account, No Watermark</title>
+<meta name="description" content="Build a professional resume free in your browser. Choose from 8 templates, customize colors and fonts, use optional AI bullet assist, and download a PDF instantly. No account required. 100% private.">
 <meta name="keywords" content="free resume builder, resume maker, professional resume, ATS resume, PDF resume, no account resume builder">
 <meta property="og:title" content="ResumeForge — Free Resume Builder">
-<meta property="og:description" content="8 templates, AI assist, instant PDF. Free forever. No account needed.">
+<meta property="og:description" content="Create a professional resume in your browser. 8 templates, optional AI assist, instant PDF download, no account needed.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://resumeforge.net/og-image.svg">
+<meta property="og:image" content="https://thefreeresumebuilder.com/og-image.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<link rel="canonical" href="https://resumeforge.net/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ResumeForge — Free Resume Builder">
+<meta name="twitter:description" content="Create a professional resume in your browser. No account, no subscription, instant PDF download.">
+<meta name="twitter:image" content="https://thefreeresumebuilder.com/og-image.svg">
+<link rel="canonical" href="https://thefreeresumebuilder.com/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBhMTAyMCIvPjxyZWN0IHg9IjYiIHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyNCIgcng9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzYzYjNmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48bGluZSB4MT0iOSIgeTE9IjExIiB4Mj0iMjMiIHkyPSIxMSIgc3Ryb2tlPSIjNjNiM2ZmIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI5IiB5MT0iMTUiIHgyPSIyMyIgeTI9IjE1IiBzdHJva2U9IiM2M2IzZmYiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjkiIHkxPSIxOSIgeDI9IjE4IiB5Mj0iMTkiIHN0cm9rZT0iIzYzYjNmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48Y2lyY2xlIGN4PSIyMyIgY3k9IjIyIiByPSI1IiBmaWxsPSIjM2I4MmY2Ii8+PHBhdGggZD0iTTIxIDIybDEuNSAxLjVMMjUgMjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+<!-- Infolinks Ads -->
+<script type="text/javascript">
+var infolinks_pid = 3445329;
+var infolinks_wsid = 0;
+</script>
+<script type="text/javascript" src="https://resources.infolinks.com/js/infolinks_main.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -173,16 +183,19 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
 /* ═══ PREVIEW PANE ═══ */
 .preview-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden}
 
-/* Ad zone — top of preview */
-.ad-zone-top{display:none}
-.ad-placeholder{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;border:1px dashed var(--border);border-radius:4px;padding:8px 24px}
+/* Clean ad placements */
+.ad-slot{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ad-zone-top{display:flex;align-items:center;justify-content:center;min-height:108px;padding:9px 16px;background:rgba(10,16,32,0.98);border-bottom:1px solid var(--border)}
+.ad-zone-side{width:332px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;background:var(--bg2);border-left:1px solid var(--border);padding:18px 16px;overflow:hidden}
+.ad-mobile-bottom{display:none;align-items:center;justify-content:center;min-height:64px;padding:7px 12px;background:rgba(10,16,32,0.98);border-top:1px solid var(--border)}
+.ad-label{font-family:var(--mono);font-size:8px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;text-align:center;margin-bottom:8px}
 
 .preview{flex:1;overflow:auto;background:#d8d8d8;padding:20px;display:flex;justify-content:center;gap:20px;scrollbar-width:thin}
 .preview::-webkit-scrollbar{width:6px}
 .preview::-webkit-scrollbar-thumb{background:#bbb;border-radius:3px}
 
-/* Ad zone — right sidebar of preview */
-.ad-zone-side{display:none}
+@media(max-width:1120px){.ad-zone-side{display:none!important}}
+@media(max-width:760px){.ad-zone-top{display:none!important}.ad-mobile-bottom{display:flex}.preview{padding:14px}.resume-page{transform-origin:top center}}
 
 
 .resume-page{width:794px;min-height:1122px;background:#fff;box-shadow:0 4px 40px rgba(0,0,0,0.3);flex-shrink:0;position:relative;overflow:hidden;font-size:13px}
@@ -629,9 +642,18 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
   <!-- PREVIEW PANE -->
   <div class="preview-wrap">
 
-    <!-- AD ZONE TOP (728×90 leaderboard) -->
-    <div class="ad-zone-top">
-      <div class="ad-placeholder">728 × 90 — Leaderboard Ad</div>
+    <!-- TOP LEADERBOARD AD -->
+    <div class="ad-zone-top ad-slot" aria-label="Advertisement">
+      <script>
+        atOptions = {
+          'key' : 'b3662c451281f297056688aad02e5f49',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/b3662c451281f297056688aad02e5f49/invoke.js"></script>
     </div>
 
     <div style="display:flex;flex:1;overflow:hidden">
@@ -640,11 +662,36 @@ textarea{resize:vertical;min-height:58px;line-height:1.5}
         <div class="resume-page tpl-classic" id="resumePage"></div>
       </div>
 
-      <!-- AD ZONE RIGHT SIDEBAR (160×600 skyscraper) -->
-      <div class="ad-zone-side" style="background:var(--bg2);border-left:1px solid var(--border);padding:16px;overflow:hidden">
-        <div class="ad-placeholder" style="width:128px;height:280px;font-size:8px;writing-mode:horizontal-tb;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.8">300 × 250<br>Ad</div>
-        <div class="ad-placeholder" style="width:128px;height:280px;font-size:8px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.8;margin-top:12px">300 × 250<br>Ad</div>
+      <!-- SIDEBAR DISPLAY AD -->
+      <div class="ad-zone-side" aria-label="Advertisement">
+        <div>
+          <div class="ad-label">Advertisement</div>
+          <script>
+            atOptions = {
+              'key' : '0e206ad812e01083c900c1773fa394ee',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/0e206ad812e01083c900c1773fa394ee/invoke.js"></script>
+        </div>
       </div>
+    </div>
+
+    <!-- MOBILE BANNER AD -->
+    <div class="ad-mobile-bottom ad-slot" aria-label="Advertisement">
+      <script>
+        atOptions = {
+          'key' : '75455804e50e3d0054fe76c52745fa2d',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/75455804e50e3d0054fe76c52745fa2d/invoke.js"></script>
     </div>
 
   </div>

@@ -120,7 +120,7 @@
 
   <!-- Bottom URL badge -->
   <rect x="72" y="492" width="220" height="36" rx="8" fill="rgba(59,130,246,0.12)" stroke="rgba(99,179,255,0.25)" stroke-width="1"/>
-  <text x="182" y="516" font-family="'IBM Plex Mono', monospace" font-size="15" fill="#63b3ff" text-anchor="middle" letter-spacing="0.05em">the-resume-forge.com</text>
+  <text x="182" y="516" font-family="'IBM Plex Mono', monospace" font-size="15" fill="#63b3ff" text-anchor="middle" letter-spacing="0.05em">thefreeresumebuilder.com</text>
 
   <!-- Top-right decorative dots -->
   <circle cx="1160" cy="40" r="3" fill="rgba(99,179,255,0.3)"/>
